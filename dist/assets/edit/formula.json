@@ -1,0 +1,37 @@
+{
+  "fieldsets": [
+    {
+      "title": "Inventory",
+      "fields": [
+        "category",
+        "instrument",
+        "description",
+        "quantity"
+      ]
+    },
+    {
+      "title": "Links",
+      "fields": [
+        {
+          "id": "links"
+        }
+      ]
+    },
+    {
+      "title": "People",
+      "fields": [
+        {
+          "id": "people"
+        }
+      ]
+    },
+    {
+      "title": "Organisations",
+      "fields": [
+        {
+          "id": "organisations"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<npdc:edit-button class="np-primary-control"></npdc:edit-button>
+<npdc:loader ng-if="!document"></npdc:loader>
+
+<div ng-if="document" class="np-padding">
+  <npdc-document:meta></npdc-document:meta>
+
+  <h3>Abstract</h3>
+  <md-divider></md-divider>
+
+  <div style="white-space: pre-wrap;">
+    {{document.category}}
+    {{document.description}}
+  </div>
+
+  <h3>Links</h3>
+  <md-divider></md-divider>
+
+  <ul>
+    <div ng-if="document.links" ng-repeat="link in document.links">
+      <li>
+        <a href="{{link.href}}">{{link.title}}</a>
+      </li>
+    </div>
+  </ul>
+
+  <!-- <h3>Platform</h3>
+  <md-divider></md-divider>
+
+  <ul>
+    <div ng-if="document.platforms" ng-repeat="platform in document.platforms">
+      <li><b>{{platform.name}}</b>&nbsp;<em>[{{platform.type}}]</em></li>
+    </div>
+  </ul>
+
+  <h3>Activity</h3>
+  <md-divider></md-divider>
+
+  <ul>
+    <div ng-if="document.activity" ng-repeat="activity in document.activity">
+      <li>
+        <b>Departed:&nbsp;</b>{{activity.departure_placename}}&nbsp;<em ng-if="activity.departed" style="font-size: .8em;">[{{activity.departed}}]</em> -
+        <b>Arrived:&nbsp;</b>{{activity.return_placename}}&nbsp;<em ng-if="activity.returned" style="font-size: .8em;">[{{activity.returned}}]</em>
+      </li>
+    </div>
+  </ul>
+
+  <npdc:persons></npdc:persons> -->
+
+</div>
