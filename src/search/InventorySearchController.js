@@ -23,8 +23,8 @@ var InventorySearchController = function ($scope, $location, $controller, Invent
   };
 
   let query = function() {
-    let defaults = { limit: "all", sort: "-updated", fields: 'code,id,updated,type,activity.departed',
-      'date-year': 'activity.departed', facets: 'tags,people.email,updated,locations.area' };
+    let defaults = { limit: "all", sort: "-updated", fields: 'category,instrument,description',
+      'date-year': 'release_date', facets: 'category,instrument' };
     let invariants = $scope.security.isAuthenticated() ? {} : {} ;
     return Object.assign({}, defaults, invariants);
   };

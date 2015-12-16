@@ -6,32 +6,140 @@
         "category",
         "instrument",
         "description",
-        "quantity"
+        "quantity",
+         "reason_for_activity"
       ]
     },
     {
-      "title": "Links",
+      "title": "Dates",
+      "fields": [
+        "release_date",
+        "intended_removal_date",
+        "removal_date",
+        "comment_date"
+      ]
+    },
+     {
+    "title": "People",
+     "fields": [
+     {
+          "id": "people",
+     "fields": [
+     {
+          "id": "first_name",
+          "title": "first name"
+      },
+      {
+          "id": "last_name",
+          "title": "last name"
+      },
+      "email",
+      "organisation",
+      "roles",
+      "homepage"
+    ]
+      }
+    ]
+  },
+     {
+    "title": "Organisations",
+     "fields": [
+     {
+          "id": "organisations",
+     "fields": [
+     {
+          "id": "first_name",
+          "title": "first name"
+      },
+      {
+          "id": "last_name",
+          "title": "last name"
+      },
+      "email",
+      "organisation",
+      "roles",
+      "homepage"
+    ]
+      }
+    ]
+     },
+    {
+      "title": "Activities",
       "fields": [
         {
-          "id": "links"
+          "id": "activities"
         }
       ]
     },
     {
-      "title": "People",
+      "title": "Fuel",
       "fields": [
         {
-          "id": "people"
+          "id": "fuel"
         }
       ]
     },
     {
-      "title": "Organisations",
+      "title": "Contamination",
       "fields": [
         {
-          "id": "organisations"
-        }
+          "id": "contamination",
+          "fields": [
+              "contamination_type",
+              "priority",
+{
+      "title": "impact",
+      "fields": [
+             "likelihood",
+             "impact_spatial",
+             "impact_temporal",
+             "impact_documented"
       ]
     }
+              ]
+        }
+      ]
+    },
+    {
+      "title": "Locations",
+      "fields": [
+        {
+          "id": "locations"
+        }
+      ]
+    },
+    {
+    "title": "Links",
+    "fields": [
+    {
+      "id": "links",
+      "fields": [
+        "title",
+        {
+           "id": "rel",
+           "title": "relation to dataset"
+          },
+          {
+           "id": "href",
+           "title": "link"
+          },
+          "title",
+          {
+           "id": "hreflang",
+           "title": "language used in link"
+          },
+          {
+           "id": "type",
+            "hidden": true
+          },
+          {
+           "id": "modified",
+            "hidden": true
+          }
+    ]
+    }
+    ]
+  }
   ]
 }
+
