@@ -5,11 +5,18 @@
 <div ng-if="document" class="np-padding">
   <npdc-document:meta></npdc-document:meta>
 
-  <h3>Abstract</h3>
+<h3>Category</h3>
   <md-divider></md-divider>
 
   <div style="white-space: pre-wrap;">
     {{document.category}}
+  </div>
+
+
+  <h3>Description</h3>
+  <md-divider></md-divider>
+
+  <div style="white-space: pre-wrap;">
     {{document.description}}
   </div>
 

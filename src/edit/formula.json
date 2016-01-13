@@ -7,24 +7,26 @@
         "instrument",
         "description",
         "quantity",
-         "reason_for_activity"
-      ]
-    },
-    {
-      "title": "Dates",
-      "fields": [
-        "release_date",
-        "intended_removal_date",
-        "removal_date",
-        "comment_date"
+        {
+          "id": "reason_for_activity",
+          "title": "reason for activity"
+      },
+         {
+          "id": "number_of_persons",
+          "title": "number of persons (estimate)"
+      }
       ]
     },
      {
     "title": "People",
-     "fields": [
+    "fields": [
      {
           "id": "people",
      "fields": [
+     {
+          "id": "id",
+          "hidden": true
+      },
      {
           "id": "first_name",
           "title": "first name"
@@ -34,11 +36,10 @@
           "title": "last name"
       },
       "email",
-      "organisation",
       "roles",
-      "homepage"
-    ]
-      }
+      "organisation"
+      ]
+    }
     ]
   },
      {
@@ -46,65 +47,233 @@
      "fields": [
      {
           "id": "organisations",
+          "title": "organisations",
      "fields": [
      {
-          "id": "first_name",
-          "title": "first name"
+          "id": "name",
+          "title": "organisation name"
       },
+      "address",
+      "zip",
+      "country",
       {
-          "id": "last_name",
-          "title": "last name"
-      },
-      "email",
-      "organisation",
-      "roles",
-      "homepage"
+          "id": "href",
+          "title": "homepage"
+      }
     ]
       }
     ]
      },
+     {
+      "title": "Dates",
+      "fields": [
+      {
+          "id": "release_date",
+          "title": "release date"
+      },
+      {
+          "id": "intended_removal_date",
+          "title": "intended removal date"
+      },
+      {
+          "id": "removal_date",
+          "title": "removal date"
+      },
+      {
+          "id": "comment_date",
+          "title": "comment date"
+      }
+      ]
+    },
+     {
+      "title": "Locations",
+      "fields": [
+     {
+          "id": "locations",
+          "title": "locations",
+     "fields": [
+     "placename",
+     "area",
+      {
+          "id": "country",
+          "hidden": true
+      },
+      {
+          "id": "hemisphere",
+          "hidden": true
+      },
+      "details",
+       {
+      "title": "gps",
+      "fields": [
+      {
+          "id": "latitude",
+          "title": "release date"
+      },
+      {
+          "id": "longitude",
+          "title": "intended removal date"
+      },
+      {
+          "id": "geometry",
+          "hidden": true
+      }
+      ]
+     },
+      {
+          "id": "field_camp",
+          "title": "field camp"
+      },
+      "instrument",
+      {
+          "id": "instrument_type",
+          "title": "instrument type"
+      },
+      {
+          "id": "contamination_type",
+          "title": "contamination type"
+      },
+      "priority",
+       {
+          "id": "impact_likelihood",
+          "title": "likelihood of impact"
+      },
+       {
+          "id": "impact_spatial",
+          "title": "spatial impact"
+      },
+      {
+          "id": "impact_temporal",
+          "title": "temporal impact"
+      },
+      {
+          "id": "impact_documented",
+          "title": "is impact documented?"
+      },
+       {
+          "id": "drum_full",
+          "title": "drums full?"
+         },
+         {
+          "id": "drum_emptied",
+          "title": "drums emptied to be removed?"
+         },
+         {
+          "id": "drum_active",
+          "title": "fuel depot active?"
+         },
+         {
+          "id": "drum_color",
+          "title": "what is drum color?"
+         },
+         "species",
+         {
+          "id": "species_area",
+          "title": "what is area used for?"
+         }
+      ]
+    }
+    ]
+    },
     {
       "title": "Activities",
       "fields": [
+          {
+          "id": "rock_samples",
+          "title": "rock samples"
+         },
+         {
+          "id": "soil_samples",
+          "title": "soil samples"
+         },
         {
-          "id": "activities"
-        }
+          "id": "sediment_samples",
+          "title": "sediment samples"
+         },
+         {
+          "id": "flora_samples",
+          "title": "flora samples"
+         },
+         {
+          "id": "interference_fauna/flora",
+          "title": "interference_fauna/flora"
+         },
+         {
+          "id": "introduced_species",
+          "title": "introduced species"
+         },
+         {
+          "id": "animal_censors",
+          "title": "animal censors"
+         },
+         {
+          "id": "explosives",
+          "title": "explosives"
+         },
+         {
+          "id": "radionucleides",
+          "title": "radionucleides"
+         },
+         {
+          "id": "ice_sampling",
+          "title": "ice_sampling"
+         },
+         {
+          "id": "ice_coring",
+          "title": "ice_coring"
+         },
+         {
+          "id": "snow_sampling",
+          "title": "snow_sampling"
+         },
+         {
+         "id": "air_sampling",
+          "title": "air_sampling"
+         },
+         {
+          "id": "water_sampling",
+          "title": "water sampling"
+         },
+         {
+          "id": "other_invasive_activity",
+          "title": "other invasive activity"
+         }
       ]
     },
     {
       "title": "Fuel",
       "fields": [
+         {
+          "id": "drum_full",
+          "title": "drums full?"
+         },
+         {
+          "id": "drum_emptied",
+          "title": "drums emptied to be removed?"
+         },
+         {
+          "id": "drum_active",
+          "title": "fuel depot active?"
+         },
+         {
+          "id": "drum_color",
+          "title": "what is drum color?"
+         }
+      ]
+    },
+     {
+      "title": "Uploads",
+      "fields": [
         {
-          "id": "fuel"
+          "id": "uploads"
         }
       ]
     },
     {
-      "title": "Contamination",
+      "title": "Photos",
       "fields": [
         {
-          "id": "contamination",
-          "fields": [
-              "contamination_type",
-              "priority",
-{
-      "title": "impact",
-      "fields": [
-             "likelihood",
-             "impact_spatial",
-             "impact_temporal",
-             "impact_documented"
-      ]
-    }
-              ]
-        }
-      ]
-    },
-    {
-      "title": "Locations",
-      "fields": [
-        {
-          "id": "locations"
+          "id": "photos"
         }
       ]
     },
@@ -117,7 +286,7 @@
         "title",
         {
            "id": "rel",
-           "title": "relation to dataset"
+           "title": "link relation to this entry"
           },
           {
            "id": "href",
