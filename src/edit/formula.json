@@ -4,17 +4,11 @@
       "title": "Inventory",
       "fields": [
         "category",
-        "instrument",
-        "description",
-        "quantity",
-        {
+         {
           "id": "reason_for_activity",
           "title": "reason for activity"
-      },
-         {
-          "id": "number_of_persons",
-          "title": "number of persons (estimate)"
-      }
+         },
+         "description"
       ]
     },
      {
@@ -22,6 +16,7 @@
     "fields": [
      {
           "id": "people",
+          "title": "people",
      "fields": [
      {
           "id": "id",
@@ -81,48 +76,75 @@
       },
       {
           "id": "comment_date",
-          "title": "comment date"
+          "title": "date comment"
       }
       ]
     },
-     {
-      "title": "Locations",
-      "fields": [
-     {
-          "id": "locations",
-          "title": "locations",
+    {
+    "title": "Locations",
      "fields": [
-     "placename",
-     "area",
+     {
+      "id": "locations",
+     "fields": [
+      "placename",
+      "area",
       {
           "id": "country",
           "hidden": true
-      },
-      {
+        },
+         {
           "id": "hemisphere",
           "hidden": true
-      },
-      "details",
-       {
-      "title": "gps",
+        },
+        {
+      "title": "Position (GPS)",
       "fields": [
-      {
+        {
           "id": "latitude",
           "title": "release date"
-      },
-      {
+        },
+        {
           "id": "longitude",
           "title": "intended removal date"
-      },
-      {
+        },
+        {
           "id": "geometry",
           "hidden": true
-      }
-      ]
-     },
+        } ]
+      },
+       {
+          "id": "details",
+          "title": "description"
+      },
+        {
+          "id": "number_of_persons",
+          "title": "number of persons (estimate)"
+      },
+      "quantity",
       {
           "id": "field_camp",
           "title": "field camp"
+      },
+      {
+        "id": "drum_full",
+        "title": "drums full?"
+      },
+      {
+        "id": "drum_emptied",
+        "title": "drums emptied to be removed?"
+      },
+      {
+        "id": "drum_active",
+        "title": "fuel depot active?"
+      },
+      {
+        "id": "drum_color",
+        "title": "what is drum color?"
+      },
+        "species",
+      {
+        "id": "species_area",
+        "title": "species' use of area"
       },
       "instrument",
       {
@@ -149,32 +171,12 @@
       {
           "id": "impact_documented",
           "title": "is impact documented?"
-      },
-       {
-          "id": "drum_full",
-          "title": "drums full?"
-         },
-         {
-          "id": "drum_emptied",
-          "title": "drums emptied to be removed?"
-         },
-         {
-          "id": "drum_active",
-          "title": "fuel depot active?"
-         },
-         {
-          "id": "drum_color",
-          "title": "what is drum color?"
-         },
-         "species",
-         {
-          "id": "species_area",
-          "title": "what is area used for?"
-         }
-      ]
-    }
+      }
+
     ]
-    },
+      }
+    ]
+     },
     {
       "title": "Activities",
       "fields": [
@@ -195,8 +197,8 @@
           "title": "flora samples"
          },
          {
-          "id": "interference_fauna/flora",
-          "title": "interference_fauna/flora"
+          "id": "interference_fauna_flora",
+          "title": "interference fauna/flora"
          },
          {
           "id": "introduced_species",
@@ -216,19 +218,19 @@
          },
          {
           "id": "ice_sampling",
-          "title": "ice_sampling"
+          "title": "ice sampling"
          },
          {
           "id": "ice_coring",
-          "title": "ice_coring"
+          "title": "ice coring"
          },
          {
           "id": "snow_sampling",
-          "title": "snow_sampling"
+          "title": "snow sampling"
          },
          {
          "id": "air_sampling",
-          "title": "air_sampling"
+          "title": "air sampling"
          },
          {
           "id": "water_sampling",
@@ -238,43 +240,6 @@
           "id": "other_invasive_activity",
           "title": "other invasive activity"
          }
-      ]
-    },
-    {
-      "title": "Fuel",
-      "fields": [
-         {
-          "id": "drum_full",
-          "title": "drums full?"
-         },
-         {
-          "id": "drum_emptied",
-          "title": "drums emptied to be removed?"
-         },
-         {
-          "id": "drum_active",
-          "title": "fuel depot active?"
-         },
-         {
-          "id": "drum_color",
-          "title": "what is drum color?"
-         }
-      ]
-    },
-     {
-      "title": "Uploads",
-      "fields": [
-        {
-          "id": "uploads"
-        }
-      ]
-    },
-    {
-      "title": "Photos",
-      "fields": [
-        {
-          "id": "photos"
-        }
       ]
     },
     {
@@ -308,7 +273,23 @@
     ]
     }
     ]
-  }
+  },
+  {
+      "title": "Photos",
+      "fields": [
+        {
+          "id": "photos"
+        }
+      ]
+    },
+    {
+      "title": "Uploads",
+      "fields": [
+        {
+          "id": "uploads"
+        }
+      ]
+    }
   ]
 }
 

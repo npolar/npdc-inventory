@@ -1,0 +1,40 @@
+{
+	"iso639-3": "eng",
+
+
+	"fields": {
+		"category": {
+			"title": "HeiPÅDeg",
+			"values": [
+				"A", "B"
+			]
+		},
+		"locations": {
+			"title": "Okok",
+			"description": "locations descr",
+			"fields": {
+				"placename": {
+					"title": "123"
+				},
+				"species": {
+					"title": "TESTING",
+					"values": [
+						"Antarctic Fur Seal",
+						"Crabeater Seal",
+						"Weddel Seal",
+						"Leopard seal",
+						"Southern elephant seal",
+						"Ross seal",
+						"South Polar Skua",
+						"Antarctic Petrel",
+						"Snow Petrel",
+						"Kelp Gull",
+						"Wilson's Storm-Petrel",
+						"Emperor Penguin",
+						"Adelie Penguin"
+					]
+				}
+			}
+		}
+	}
+}

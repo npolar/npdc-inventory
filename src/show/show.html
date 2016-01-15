@@ -5,20 +5,77 @@
 <div ng-if="document" class="np-padding">
   <npdc-document:meta></npdc-document:meta>
 
-<h3>Category</h3>
+<h3>Overview</h3>
   <md-divider></md-divider>
 
-  <div style="white-space: pre-wrap;">
-    {{document.category}}
-  </div>
+    <h4>Category</h4> {{document.category}}
+  <h4>Description</h4>{{document.description}}
+ <h4>Reason for activity</h4> {{document.reason_for_activity}}
 
+ <npdc:persons></npdc:persons>
+ <npdc:organisations></npdc:organisations>
 
-  <h3>Description</h3>
-  <md-divider></md-divider>
+<br /><br />
+  <h3>Dates</h3>
+   <md-divider></md-divider>
+    <h4>Release date</h4>{{document.release_date}}
+   <h4>Intended removal date</h4>{{document.intended_removal_date}}
+    <h4>Removal date </h4>{{document.removal_date}}
+     <h4>Date comment</h4>{{document.comment_date}}
+<br /><br />
 
-  <div style="white-space: pre-wrap;">
-    {{document.description}}
-  </div>
+  <h3>Locations</h3>
+   <md-divider></md-divider>
+   <ul>
+    <div ng-if="document.location" ng-repeat="location in document.locations">
+      <li>
+      <h4>Area</h4>{{location.area}}
+      <h4>Placename </h4>{{location.placename}}
+      <div ng-if="location.gps" ng-repeat="gps in location.gps">
+      <h4>Location GPS (lat, lng) </h4> {{location.longitude}}{{location.latitude}}
+      </div>
+      <h4>Description</h4>{{location.details}}
+      <h4>Number of persons</h4>{{location.number_of_persons}}
+      <h4>Quantity</h4>{{location.quantity}}
+      <h4>Instrument</h4>{{location.instrument}}
+      <h4>Instrument type</h4>{{location.instrument_type}}
+      <h4>Species</h4>{{location.species}}
+      <h4>Species' use of area</h4>{{location.species_area}}
+      <h4>Field camp</h4>{{location.field_camp}}
+      <h4>Drums full</h4>{{location.drum_full}}
+      <h4>Drums emptied to bw removed</h4>{{location.drum_emptied}}
+      <h4>Fuel depot active</h4>{{location.drum_active}}
+      <h4>Drum color</h4>{{location.drum_color}}
+       <h4>Contamination type</h4>{{location.contamination_type}}
+       <h4>Priority</h4>{{location.priority}}
+       <h4>Likelihood of impact</h4>{{location.impact_likelihood}}
+       <h4>Spatial impact</h4>{{location.impact_spatial}}
+       <h4>Temporal impact</h4>{{location.impact_temporal}}
+       <h4>Is impact documented?</h4>{{location.impact_documented}}
+      </li>
+    </div>
+  </ul>
+<br /><br />
+
+  <h3>Activites</h3>
+   <md-divider></md-divider>
+      {{document.rock_samples}}{{document.rock_samples}}
+      {{document.soil_samples}}{{document.soil_samples}}
+      {{document.sediment_samples}}{{document.sediment_samples}}
+      {{document.flora_samples}}{{document.flora_samples}}
+      {{document.fauna_samples}}{{document.fauna_samples}}
+      {{document.interference_fauna_flora}}{{document.interference_fauna_flora}}
+      {{document.introduced_species}}{{document.introduced_species}}
+      {{document.animal_censors}}{{document.animal_censors}}
+      {{document.explosives}}{{document.explosives}}
+      {{document.radionucleides}}{{document.radionucleides}}
+      {{document.ice_sampling}}{{document.ice_sampling}}
+      {{document.ice_coring}}{{document.ice_coring}}
+      {{document.snow_sampling}}{{document.snow_sampling}}
+      {{document.air_sampling}}{{document.air_sampling}}
+      {{document.water_sampling}}{{document.water_sampling}}
+      {{document.other_invasive_activity}}{{document.other_invasive_activity}}
+<br /><br />
 
   <h3>Links</h3>
   <md-divider></md-divider>
@@ -31,27 +88,12 @@
     </div>
   </ul>
 
-  <!-- <h3>Platform</h3>
+
+  <h3>Photos</h3>
   <md-divider></md-divider>
 
-  <ul>
-    <div ng-if="document.platforms" ng-repeat="platform in document.platforms">
-      <li><b>{{platform.name}}</b>&nbsp;<em>[{{platform.type}}]</em></li>
-    </div>
-  </ul>
-
-  <h3>Activity</h3>
+   <h3>Uploads</h3>
   <md-divider></md-divider>
 
-  <ul>
-    <div ng-if="document.activity" ng-repeat="activity in document.activity">
-      <li>
-        <b>Departed:&nbsp;</b>{{activity.departure_placename}}&nbsp;<em ng-if="activity.departed" style="font-size: .8em;">[{{activity.departed}}]</em> -
-        <b>Arrived:&nbsp;</b>{{activity.return_placename}}&nbsp;<em ng-if="activity.returned" style="font-size: .8em;">[{{activity.returned}}]</em>
-      </li>
-    </div>
-  </ul>
 
-  <npdc:persons></npdc:persons> -->
 
-</div>
