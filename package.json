@@ -11,8 +11,8 @@
   "private": false,
   "repository": "https://github.com/npolar/npdc-inventory",
   "dependencies": {
-    "angular": "1.4.7",
-    "angular-sanitize": "^1.4.8",
+    "angular": "^1.4.9",
+    "angular-sanitize": "^1.4.9",
     "npdc-common": "npolar/npdc-common"
   },
   "devDependencies": {

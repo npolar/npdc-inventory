@@ -3,12 +3,6 @@
 
 
 	"fields": {
-		"category": {
-			"title": "HeiPÅDeg",
-			"values": [
-				"A", "B"
-			]
-		},
 		"locations": {
 			"title": "Okok",
 			"description": "locations descr",

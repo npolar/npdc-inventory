@@ -1,5 +1,5 @@
 'use strict';
-
+var environment = require('../environment');
 var npdcCommon = require('npdc-common');
 var AutoConfig = npdcCommon.AutoConfig;
 
@@ -33,7 +33,7 @@ npdcInventoryApp.config($httpProvider => {
 
 // Inject npolarApiConfig and run
 npdcInventoryApp.run(function(npolarApiConfig, npdcAppConfig){
-  var environment = "production";
+  //var environment = "production";
   var autoconfig = new AutoConfig(environment);
   angular.extend(npolarApiConfig, autoconfig);
 

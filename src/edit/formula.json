@@ -1,46 +1,38 @@
 {
   "fieldsets": [
     {
-      "title": "Inventory",
+      "title": "Core",
       "fields": [
         "category",
-         {
-          "id": "reason_for_activity",
-          "title": "reason for activity"
-         },
-         "description"
+        "title",
+        "description",
+        "ephorte_no"
       ]
     },
-     {
+   {
     "title": "People",
-    "fields": [
-     {
-          "id": "people",
-          "title": "people",
-     "fields": [
-     {
-          "id": "id",
-          "hidden": true
-      },
-     {
+    "fields": [{
+      "id": "people",
+      "fields": [{
           "id": "first_name",
-          "title": "first name"
-      },
-      {
+          "title": "first name",
+          "autocomplete": "//api.npolar.no/person/?fields=first_name,last_name,organisation,email&format=json&variant=array"
+        }, {
           "id": "last_name",
-          "title": "last name"
-      },
-      "email",
-      "roles",
-      "organisation"
+          "title": "last name",
+          "autocomplete": "//api.npolar.no/person/?fields=first_name,last_name,organisation,email&format=json&variant=array"
+        },
+        "!id",
+        "email",
+        "phone",
+        "role",
+        "organisation"
       ]
-    }
-    ]
+    }]
   },
      {
     "title": "Organisations",
-     "fields": [
-     {
+     "fields": [{
           "id": "organisations",
           "title": "organisations",
      "fields": [
@@ -50,36 +42,15 @@
       },
       "address",
       "zip",
+      "city",
       "country",
       {
           "id": "href",
           "title": "homepage"
       }
     ]
-      }
-    ]
+      }]
      },
-     {
-      "title": "Dates",
-      "fields": [
-      {
-          "id": "release_date",
-          "title": "release date"
-      },
-      {
-          "id": "intended_removal_date",
-          "title": "intended removal date"
-      },
-      {
-          "id": "removal_date",
-          "title": "removal date"
-      },
-      {
-          "id": "comment_date",
-          "title": "date comment"
-      }
-      ]
-    },
     {
     "title": "Locations",
      "fields": [
@@ -112,71 +83,31 @@
           "hidden": true
         } ]
       },
-       {
-          "id": "details",
-          "title": "description"
-      },
-        {
-          "id": "number_of_persons",
-          "title": "number of persons (estimate)"
-      },
-      "quantity",
-      {
-          "id": "field_camp",
-          "title": "field camp"
-      },
-      {
-        "id": "drum_full",
-        "title": "drums full?"
-      },
-      {
-        "id": "drum_emptied",
-        "title": "drums emptied to be removed?"
-      },
-      {
-        "id": "drum_active",
-        "title": "fuel depot active?"
-      },
-      {
-        "id": "drum_color",
-        "title": "what is drum color?"
-      },
-        "species",
-      {
-        "id": "species_area",
-        "title": "species' use of area"
-      },
-      "instrument",
-      {
-          "id": "instrument_type",
-          "title": "instrument type"
-      },
-      {
-          "id": "contamination_type",
-          "title": "contamination type"
-      },
-      "priority",
-       {
-          "id": "impact_likelihood",
-          "title": "likelihood of impact"
-      },
-       {
-          "id": "impact_spatial",
-          "title": "spatial impact"
-      },
-      {
-          "id": "impact_temporal",
-          "title": "temporal impact"
-      },
-      {
-          "id": "impact_documented",
-          "title": "is impact documented?"
-      }
-
-    ]
-      }
-    ]
+     "place",
+     "comment"
+     ]}]
      },
+     {
+      "title": "Dates",
+      "fields": [
+      {
+          "id": "release_date",
+          "title": "release date"
+      },
+      {
+          "id": "intended_removal_date",
+          "title": "intended removal date"
+      },
+      {
+          "id": "removal_date",
+          "title": "removal date"
+      },
+      {
+          "id": "comment_date",
+          "title": "date comment"
+      }
+      ]
+    },
     {
       "title": "Activities",
       "fields": [
@@ -242,6 +173,82 @@
          }
       ]
     },
+     {
+    "title": "Stationaries",
+    "fields": [
+         "field_hut",
+         "cultural_heritage",
+         "airstrip",
+         "heliport",
+          {
+          "id": "stationary_other",
+          "title": "other stationaries"
+          },
+          {
+          "id": "stationary_quantity",
+          "title": "quantity"
+          }]
+    },
+    {
+    "title": "Instrument",
+    "fields": [
+         "instrument",
+          {
+          "id": "instrument_description",
+          "title": "instrument description"
+          },
+          "quantity"
+          ]
+    },
+     {
+    "title": "Fuel",
+    "fields": [
+          {
+          "id": "fuel_tank",
+          "title": "fuel tank"
+          },
+          "quantity",
+          "content",
+          {
+          "id": "drum_full",
+          "title": "drum(s) full"
+          },
+           {
+          "id": "drum_emptied",
+          "title": "drum(s) emptied to be removed"
+          },
+           {
+          "id": "expiration_date",
+          "title": "expiration date"
+          }
+          ]
+     },
+     {
+    "title": "Contamination",
+    "fields": [
+          {
+          "id": "type",
+          "title": "type of contamination"
+          },
+          "quantity",
+          "priority",
+          {
+          "id": "impact_likelihood",
+          "title": "Likelihood of impact"
+          },
+           {
+          "id": "impact_spatial",
+          "title": "spatial impact"
+          },
+           {
+          "id": "impact_temporal",
+          "title": "temporal impact"
+          },
+           {
+          "id": "impact_documented",
+          "title": "has impact been documented?"
+          }
+          ]},
     {
     "title": "Links",
     "fields": [
@@ -289,7 +296,16 @@
           "id": "uploads"
         }
       ]
+    },
+     {
+      "title": "Additional",
+      "fields": [
+        "created",
+        "updated"
+      ]
     }
   ]
 }
+
+
 

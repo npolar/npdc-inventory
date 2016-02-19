@@ -1,25 +1,42 @@
 'use strict';
 
-/**
- * @ngInject
- */
-var InventoryEditController = function ($scope, $controller, $routeParams, Inventory) {
+var InventoryEditController = function($scope, $controller, $routeParams, Inventory, formula,
+  formulaAutoCompleteService, npdcAppConfig, chronopicService) {
+  'ngInject';
 
   // EditController -> NpolarEditController
-  $controller('NpolarEditController', { $scope: $scope });
+  $controller('NpolarEditController', {
+    $scope: $scope
+  });
 
-  // Expedition -> npolarApiResource -> ngResource
+  // Inventory -> npolarApiResource -> ngResource
   $scope.resource = Inventory;
 
-  // Formula ($scope.formula is set by parent)
-  $scope.formula.schema = '//api.npolar.no/schema/inventory';
-  $scope.formula.form = 'edit/formula.json';
-  $scope.formula.language = 'edit/translation.json';
-  $scope.formula.template = 'material';
+  let formulaOptions = {
+    schema: '//api.npolar.no/schema/inventory',
+    form: 'edit/formula.json',
+    templates: npdcAppConfig.formula.templates.concat([{
+      match(field) {
+        return ["alternate", "edit", "via"].includes(field.value.rel);
+      },
+      hidden: true
+    } ]),
+    languages: npdcAppConfig.formula.languages
+  };
 
-  // edit (or new) action
+  $scope.formula = formula.getInstance(formulaOptions);
+  $scope.formula.i18n.add(require('./translation.json'), 'en');
+
+ // formulaAutoCompleteService.autocompleteFacets(['organisations.name', 'organisations.email',
+ //   'organisations.homepage', 'organisations.gcmd_short_name', 'links.type', 'sets', 'tags'], TrollBooking, $scope.formula);
+
+  chronopicService.defineOptions({ match: 'released', format: '{date}'});
+  chronopicService.defineOptions({ match(field) {
+    return field.path.match(/^#\/activity\/\d+\/.+/);
+  }, format: '{date}'});
+
+
   $scope.edit();
-
 };
 
 module.exports = InventoryEditController;
