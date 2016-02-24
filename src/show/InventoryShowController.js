@@ -12,9 +12,7 @@ var InventoryShowController = function ($scope, $q, $routeParams, $controller, I
 
 
 
- // $scope.show().$promise.then(data => {
- //   npdcAppConfig.cardTitle = data.code;
- // });
+
 };
 
 module.exports = InventoryShowController;

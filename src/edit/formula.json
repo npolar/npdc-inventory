@@ -46,7 +46,7 @@
       "country",
       {
           "id": "href",
-          "title": "homepage"
+          "title": "homepage (please include protocol, f.ex 'http://' or 'https://')"
       }
     ]
       }]
@@ -244,7 +244,7 @@
           },
           {
            "id": "href",
-           "title": "link"
+           "title": "link (please include protocol, f.ex 'http://' or 'https://')"
           },
           "title",
           "!hreflang",
@@ -271,10 +271,20 @@
       ]
     },
      {
-      "title": "Additional",
-      "fields": [
-        "created",
-        "updated"
+      "title": "Edits",
+      "fields": [{
+        "id": "created",
+        "disabled": true
+      }, {
+        "id": "created_by",
+        "disabled": true
+      }, {
+        "id": "updated",
+        "disabled": true
+      }, {
+        "id": "updated_by",
+        "disabled": true
+      }
       ]
     }
   ]
