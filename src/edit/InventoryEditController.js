@@ -21,12 +21,16 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
       },
       hidden: true
     } ]),
-    languages: npdcAppConfig.formula.languages
+    languages: npdcAppConfig.formula.languages.concat([
+    {
+      map: require('./translation.json'),
+      code: 'en'
+    }
+    ])
   };
 
   $scope.formula = formula.getInstance(formulaOptions);
   $scope.formula.i18n.add(require('./translation.json'), 'en');
-
  // formulaAutoCompleteService.autocompleteFacets(['organisations.name', 'organisations.email',
  //   'organisations.homepage', 'organisations.gcmd_short_name', 'links.type', 'sets', 'tags'], TrollBooking, $scope.formula);
 

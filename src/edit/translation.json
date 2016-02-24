@@ -4,30 +4,23 @@
 
 	"fields": {
 		"locations": {
-			"title": "Okok",
+			"title": "locations",
 			"description": "locations descr",
 			"fields": {
-				"placename": {
-					"title": "123"
-				},
-				"species": {
-					"title": "TESTING",
-					"values": [
-						"Antarctic Fur Seal",
-						"Crabeater Seal",
-						"Weddel Seal",
-						"Leopard seal",
-						"Southern elephant seal",
-						"Ross seal",
-						"South Polar Skua",
-						"Antarctic Petrel",
-						"Snow Petrel",
-						"Kelp Gull",
-						"Wilson's Storm-Petrel",
-						"Emperor Penguin",
-						"Adelie Penguin"
-					]
+				"fields": {
+					"gps": {
+						"title": "gps"
+					},
+					"place": {
+						"title": "TESTING",
+						"values": [
+							"Troll",
+							"Tor",
+							"Shelf and traverse"
+						]
+					}
 				}
+
 			}
 		}
 	}

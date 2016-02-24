@@ -57,56 +57,53 @@
      {
       "id": "locations",
      "fields": [
+      "!hemisphere",
+      "!country",
       "placename",
-      "area",
-      {
-          "id": "country",
-          "hidden": true
-        },
-         {
-          "id": "hemisphere",
-          "hidden": true
-        },
-        {
-      "title": "Position (GPS)",
-      "fields": [
-        {
+      "!area",
+      "place",
+      {"title": "GPS",
+     "fields": [
+       {
           "id": "latitude",
-          "title": "release date"
+          "title": "latitude"
         },
         {
           "id": "longitude",
-          "title": "intended removal date"
+          "title": "longitude"
         },
         {
           "id": "geometry",
           "hidden": true
         } ]
-      },
-     "place",
-     "comment"
-     ]}]
-     },
+        },
+        "comment" ]
+      }
+     ]},
      {
       "title": "Dates",
       "fields": [
-      {
-          "id": "release_date",
-          "title": "release date"
-      },
-      {
-          "id": "intended_removal_date",
-          "title": "intended removal date"
-      },
-      {
-          "id": "removal_date",
-          "title": "removal date"
-      },
-      {
-          "id": "comment_date",
-          "title": "date comment"
-      }
-      ]
+      "release_date",
+      "intended_removal_date",
+      "removal_date",
+      "comment_date"]
+    },
+    {
+    "title": "Stationaries",
+    "fields": [
+         "field_hut",
+         "research_station",
+         "cultural_heritage",
+         "airstrip",
+         "heliport",
+          {
+          "id": "stationary_other",
+          "title": "other stationaries"
+          },
+          {
+          "id": "stationary_quantity",
+          "title": "quantity"
+          }]
     },
     {
       "title": "Activities",
@@ -174,59 +171,23 @@
       ]
     },
      {
-    "title": "Stationaries",
+    "title": "Instruments",
     "fields": [
-         "field_hut",
-         "cultural_heritage",
-         "airstrip",
-         "heliport",
-          {
-          "id": "stationary_other",
-          "title": "other stationaries"
-          },
-          {
-          "id": "stationary_quantity",
-          "title": "quantity"
-          }]
-    },
     {
-    "title": "Instrument",
+      "id": "instrument",
+      "fields": [
+        "instrument",
+        "instrument_description",
+        "quantity"
+    ] } ]
+  },
+  {
+   "title": "Contamination",
     "fields": [
-         "instrument",
-          {
-          "id": "instrument_description",
-          "title": "instrument description"
-          },
-          "quantity"
-          ]
-    },
-     {
-    "title": "Fuel",
-    "fields": [
-          {
-          "id": "fuel_tank",
-          "title": "fuel tank"
-          },
-          "quantity",
-          "content",
-          {
-          "id": "drum_full",
-          "title": "drum(s) full"
-          },
-           {
-          "id": "drum_emptied",
-          "title": "drum(s) emptied to be removed"
-          },
-           {
-          "id": "expiration_date",
-          "title": "expiration date"
-          }
-          ]
-     },
-     {
-    "title": "Contamination",
-    "fields": [
-          {
+    {
+      "id": "contamination",
+      "fields": [
+        {
           "id": "type",
           "title": "type of contamination"
           },
@@ -234,7 +195,7 @@
           "priority",
           {
           "id": "impact_likelihood",
-          "title": "Likelihood of impact"
+          "title": "likelihood of impact"
           },
            {
           "id": "impact_spatial",
@@ -246,9 +207,30 @@
           },
            {
           "id": "impact_documented",
-          "title": "has impact been documented?"
+          "title": "Yes, impact has been documented"
           }
-          ]},
+    ] } ]
+  },
+   {
+    "title": "Fuel",
+    "fields": [
+    {
+      "id": "fuel",
+       "fields":[
+         "fuel_tank",
+          "quantity",
+          "content",
+          {
+          "id": "drum_full",
+          "title": "drum(s) full"
+          },
+           {
+          "id": "drum_emptied",
+          "title": "drum(s) emptied to be removed"
+          },
+          "expiration_date"
+          ] } ]
+     },
     {
     "title": "Links",
     "fields": [
@@ -265,18 +247,9 @@
            "title": "link"
           },
           "title",
-          {
-           "id": "hreflang",
-           "title": "language used in link"
-          },
-          {
-           "id": "type",
-            "hidden": true
-          },
-          {
-           "id": "modified",
-            "hidden": true
-          }
+          "!hreflang",
+          "!type",
+          "!modified"
     ]
     }
     ]
