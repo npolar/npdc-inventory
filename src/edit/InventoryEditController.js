@@ -1,7 +1,7 @@
 'use strict';
 
 var InventoryEditController = function($scope, $controller, $routeParams, Inventory, formula,
-  formulaAutoCompleteService, npdcAppConfig, chronopicService) {
+  formulaAutoCompleteService, npdcAppConfig, chronopicService, fileFunnelService) {
   'ngInject';
 
   // EditController -> NpolarEditController
@@ -25,7 +25,10 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
     {
       map: require('./translation.json'),
       code: 'en'
-    }])
+    }]),
+   onsave: function (model) {
+    console.log(model);
+   }
   };
 
   $scope.formula = formula.getInstance(formulaOptions);
@@ -36,6 +39,30 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   chronopicService.defineOptions({ match(field) {
     return field.path.match(/^#\/activity\/\d+\/.+/);
   }, format: '{date}'});
+
+
+   let dataLinkSuccess = function (file) {
+    return {
+      rel: 'DATA',
+      href: file.url,
+      title: file.filename,
+      length: file.file_size,
+      hash: file.md5sum,
+      type: file.content_type
+    };
+  };
+
+  fileFunnelService.fileUploader({
+    match(field) {
+       return field.id === "links" && field.instance === "data";
+    },
+    server: 'https://apptest.data.npolar.no:3000/inventory/:id/_file/',
+    successCallback: dataLinkSuccess,
+    filterValues: function (value) {
+      return value.rel.toUpperCase() === 'DATA';
+    },
+    restricted: false
+  }, $scope.formula);
 
 
   $scope.edit();

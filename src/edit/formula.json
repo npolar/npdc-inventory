@@ -13,7 +13,8 @@
     "title": "People",
     "fields": [{
       "id": "people",
-      "fields": [{
+      "items": {
+        "fields": [{
           "id": "first_name",
           "title": "first name",
           "autocomplete": "//api.npolar.no/person/?fields=first_name,last_name,organisation,email&format=json&variant=array"
@@ -28,14 +29,15 @@
         "role",
         "organisation"
       ]
+      }
     }]
   },
      {
     "title": "Organisations",
      "fields": [{
           "id": "organisations",
-          "title": "organisations",
-     "fields": [
+          "items": {
+          "fields": [
      {
           "id": "name",
           "title": "organisation name"
@@ -49,21 +51,23 @@
           "title": "homepage (please include protocol, f.ex 'http://' or 'https://')"
       }
     ]
-      }]
+      }
+     }]
      },
-    {
+      {
     "title": "Locations",
      "fields": [
      {
       "id": "locations",
-     "fields": [
+     "items": {
+      "fields": [
       "!hemisphere",
       "!country",
       "placename",
       "!area",
       "place",
       {"title": "GPS",
-     "fields": [
+     "items": [
        {
           "id": "latitude",
           "title": "latitude"
@@ -77,7 +81,7 @@
           "hidden": true
         } ]
         },
-        "comment" ]
+        "comment" ]}
       }
      ]},
      {
@@ -88,7 +92,7 @@
       "removal_date",
       "comment_date"]
     },
-    {
+     {
     "title": "Stationaries",
     "fields": [
          "field_hut",
@@ -175,17 +179,18 @@
     "fields": [
     {
       "id": "instrument",
-      "fields": [
+      "items": [
         "instrument",
         "instrument_description",
         "quantity"
     ] } ]
   },
-  {
+   {
    "title": "Contamination",
     "fields": [
     {
       "id": "contamination",
+         "items": {
       "fields": [
         {
           "id": "type",
@@ -209,13 +214,14 @@
           "id": "impact_documented",
           "title": "Yes, impact has been documented"
           }
-    ] } ]
+    ] } } ]
   },
    {
     "title": "Fuel",
     "fields": [
     {
       "id": "fuel",
+       "items": {
        "fields":[
          "fuel_tank",
           "quantity",
@@ -229,13 +235,14 @@
           "title": "drum(s) emptied to be removed"
           },
           "expiration_date"
-          ] } ]
+          ]} } ]
      },
     {
     "title": "Links",
     "fields": [
     {
       "id": "links",
+      "items": {
       "fields": [
         "title",
         {
@@ -252,13 +259,15 @@
           "!modified"
     ]
     }
+  }
     ]
   },
   {
       "title": "Photos",
       "fields": [
-        {
-          "id": "photos"
+         {
+          "id": "links",
+           "instance":"data"
         }
       ]
     },
@@ -266,7 +275,8 @@
       "title": "Uploads",
       "fields": [
         {
-          "id": "uploads"
+          "id": "links",
+           "instance":"data"
         }
       ]
     },
@@ -289,6 +299,3 @@
     }
   ]
 }
-
-
-

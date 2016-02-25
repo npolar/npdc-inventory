@@ -23,10 +23,10 @@
 							"research station"
 						]
 					},
-			"people": {
+    "people": {
 			"title": "people",
 			"description": "contact persons",
-			"fields": {
+			"items": {
 				"fields": {
 					"role": {
 						"title": "role",
@@ -36,14 +36,13 @@
 							"observer"
 						]
 					}
-				}
-
+              }
 			}
 		},
 		"contamination": {
 			"title": "contamination",
 			"description": "contamination",
-			"fields": {
+			"items": {
 				"fields": {
 					"type": {
 						"title": "type",
@@ -102,7 +101,7 @@
 		"fuel": {
 			"title": "fuel",
 			"description": "fuel",
-			"fields": {
+			"items": {
 				"fields": {
 				"fuel_tank": {
                     "title": "fuel tank",
@@ -127,7 +126,7 @@
 		"links": {
 			"title": "links",
 			"description": "links",
-			"fields": {
+			"items": {
 				"fields": {
 					"rel": {
 						"title": "relation to link",
@@ -146,13 +145,13 @@
 		"locations": {
 			"title": "locations",
 			"description": "locations descr",
-			"fields": {
+			"items": {
 				"fields": {
 					"gps": {
 						"title": "gps"
 					},
 					"place": {
-						"title": "TESTING",
+						"title": "place",
 						"values": [
 							"Troll",
 							"Tor",
