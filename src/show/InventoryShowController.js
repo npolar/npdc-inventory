@@ -8,9 +8,9 @@ var InventoryShowController = function ($scope, $q, $routeParams, $controller, I
 
   $controller('NpolarBaseController', {$scope: $scope});
   $scope.resource = Inventory;
+
+  console.log($scope.resource);
   $scope.show();
-
-
 
 
 };

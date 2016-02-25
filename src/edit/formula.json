@@ -266,7 +266,7 @@
       "title": "Photos",
       "fields": [
          {
-          "id": "links",
+          "id": "links2",
            "instance":"data"
         }
       ]
@@ -275,7 +275,7 @@
       "title": "Uploads",
       "fields": [
         {
-          "id": "links",
+          "id": "links23",
            "instance":"data"
         }
       ]
