@@ -41,7 +41,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   }, format: '{date}'});
 
 
-   let dataLinkSuccess = function (file) {
+  /* let dataLinkSuccess = function (file) {
     return {
       rel: 'DATA',
       href: file.url,
@@ -50,9 +50,40 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
       hash: [file.md5sum],
       type: file.content_type
     };
-  };
+  }; */
+
+   let fileToValueMapper = function (file) {
+      return {
+        rel: 'data',
+        href: file.url,
+        title: file.filename,
+        length: file.file_size,
+        hash: [file.md5sum],
+        type: file.content_type
+      };
+    };
+
+    let valueToFileMapper = function (value) {
+      if (value.rel !== 'data') {
+        return null;
+      }
+      return {
+        filename: value.title,
+        file_size: value.length,
+        url: value.href
+      };
+    };
 
   fileFunnelService.fileUploader({
+    match(field) {
+      return field.id === "links" && field.instance === "data";
+    },
+    multiple: true,
+    server: 'https://apptest.data.npolar.no:3000/inventory/:id/_file/',
+    fileToValueMapper, valueToFileMapper, fields: ['rel']}, $scope.formula);
+
+
+  /*fileFunnelService.fileUploader({
     match(field) {
        return field.id === "links" && field.instance === "data";
     },
@@ -62,7 +93,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
       return value.rel.toUpperCase() === 'DATA';
     },
     restricted: false
-  }, $scope.formula);
+  }, $scope.formula); */
 
 
   $scope.edit();
