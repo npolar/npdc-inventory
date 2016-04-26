@@ -31,9 +31,11 @@ npdcInventoryApp.config($httpProvider => {
   $httpProvider.interceptors.push('npolarApiInterceptor');
 });
 
+
 // Inject npolarApiConfig and run
 npdcInventoryApp.run(function(npolarApiConfig, npdcAppConfig){
-//  var environment = "production";
+  var environment = "test";
+  console.log(environment);
   var autoconfig = new AutoConfig(environment);
   angular.extend(npolarApiConfig, autoconfig);
 

@@ -78,15 +78,30 @@
         ]
       }
     }]
-  }, {
+  },
+  {
     "title": "Dates",
-    "fields": [
-      "release_date",
-      "intended_removal_date",
-      "removal_date",
+    "fields": [ {
+            "id": "release_dates",
+            "title": "release_dates",
+            "items": {
+              "fields": [{
+                "id": "start_date",
+                "title": "release date"
+              }, {
+                "id": "end_date",
+                "title": "actual removal date"
+              }]
+            }
+      },
+      {
+          "id": "intended_removal_date",
+          "title": "intended removal date (if in the future)"
+      },
       "comment_date"
     ]
-  }, {
+  },
+   {
     "title": "Stationaries",
     "fields": [
       "field_hut",
@@ -233,7 +248,7 @@
   }, {
     "title": "Uploads",
     "fields": [{
-      "id": "links",
+      "id": "links23",
       "instance": "data"
     }]
   }, {

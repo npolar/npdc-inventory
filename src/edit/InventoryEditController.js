@@ -32,8 +32,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   };
 
   $scope.formula = formula.getInstance(formulaOptions);
- // formulaAutoCompleteService.autocompleteFacets(['organisations.name', 'organisations.email',
- //   'organisations.homepage', 'organisations.gcmd_short_name', 'links.type', 'sets', 'tags'], TrollBooking, $scope.formula);
+  formulaAutoCompleteService.autocompleteFacets(['people.first_name', 'people.last_name'], Inventory, $scope.formula);
 
   chronopicService.defineOptions({ match: 'released', format: '{date}'});
   chronopicService.defineOptions({ match(field) {

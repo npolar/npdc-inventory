@@ -47,6 +47,7 @@
 					"type": {
 						"title": "type",
 						"values": [
+						    "unknown",
 							"metals",
 							"glass",
 							"mixed waste",
@@ -62,6 +63,7 @@
 					"priority": {
 						 "title": "priority",
 						 "values": [
+						    "unknown",
                             "high priority for remediation",
                             "medium priority for remediation",
                             "low priority for remediation",
@@ -72,6 +74,7 @@
 					"impact_likelihood": {
 						 "title": "likelihood of impact",
 						 "values": [
+						 "unknown",
 						 "almost certain",
 						 "likely",
 						 "possible",
@@ -81,6 +84,7 @@
 					"impact_spatial": {
 						 "title": "spatial impact",
 						 "values": [
+						  "unknown",
 						  "local <100m²",
 						  "immediate 100m – 1km²",
 						  "widespread >1km²"
@@ -89,6 +93,7 @@
 					"impact_temporal": {
 						 "title": "temporal impact",
 						 "values": [
+						  "unknown",
 						  "short term <1 year",
 						  "intermediate 1-10 years",
 						  "long term > 10 years"
@@ -106,6 +111,7 @@
 				"fuel_tank": {
                     "title": "fuel tank",
                     "values": [
+                            "none",
 							"11 cubic",
 							"24 cubic",
 							"drums"
@@ -115,6 +121,7 @@
 			   "content": {
 			   	     "title": "fuel content",
                     "values": [
+                            "none",
 							"diesel",
 							"jet A-1",
 							"benzin"
@@ -153,6 +160,7 @@
 					"place": {
 						"title": "place",
 						"values": [
+						    "none",
 							"Troll",
 							"Tor",
 							"Shelf and traverse"
