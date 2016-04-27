@@ -2,17 +2,16 @@
 /**
  * @ngInject
  */
-var InventorySearchController = function ($scope, $location, $controller, Inventory, npdcAppConfig) {
+var InventorySearchController = function ($filter, $scope, $location, $controller, Inventory, npdcAppConfig) {
 
   $controller('NpolarBaseController', { $scope: $scope });
   $scope.resource = Inventory;
 
- /* npdcAppConfig.search.local.results.detail = function (entry) {
-    return "Released: " + (entry.released ? entry.released.split('T')[0] : '-');
-  }; */
 
+  //Search subtitles
   npdcAppConfig.search.local.results.detail = function (entry) {
-    return entry.category + ' - ' + entry.description;
+    let r = convert(entry.category) + ' - Last updated:';
+    return  r+` ${$filter('date')(entry.updated)}`;
   };
 
 
@@ -21,7 +20,7 @@ var InventorySearchController = function ($scope, $location, $controller, Invent
 
 
   let query = function() {
-    let defaults = { limit: "all", sort: "-updated", fields: 'id,category,instrument,description',
+    let defaults = { limit: "all", sort: "-updated", fields: 'title,id,category,instrument,description,updated',
       'date-year': 'release_date', facets: 'category,instrument' };
     let invariants = $scope.security.isAuthenticated() ? {} : {} ;
     return Object.assign({}, defaults, invariants);
@@ -34,5 +33,20 @@ var InventorySearchController = function ($scope, $location, $controller, Invent
   });
 
 };
+
+/* convert from camelCase to lower case text*/
+function convert(str) {
+       var  positions = '';
+
+       for(var i=0; i<(str).length; i++){
+           if(str[i].match(/[A-Z]/) !== null){
+             positions += " ";
+             positions += str[i].toLowerCase();
+        } else {
+            positions += str[i];
+        }
+      }
+        return positions;
+       }
 
 module.exports = InventorySearchController;

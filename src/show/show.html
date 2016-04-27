@@ -2,8 +2,9 @@
 <npdc:edit-button class="np-primary-control"></npdc:edit-button>
 <npdc:loader ng-if="!document"></npdc:loader>
 
+
 <div ng-if="document" class="np-padding">
-  <npdc-document:meta></npdc-document:meta>
+
 
 <h3>Overview</h3>
 
@@ -11,19 +12,19 @@
   <md-divider></md-divider>
 
     <br /><p>Title: {{document.title}}  <p />
-    <p>Category:  {{ (document.category).charAt(0) + (document.category).toLowerCase().slice(1) }} <p />
+    <p>Category:  {{ (document.category) }} <p />
     <p>Description: {{document.description}}<p />
-     <p>ePhorte no: {{document.ephorte_no}}<p /><br />
+     <p>EPhorte no: {{document.ephorte_no}}<p /><br />
 
 
  <npdc:persons></npdc:persons>
  <npdc:organisations></npdc:organisations>
 
+  <div ng-if="document.locations" ng-repeat="location in document.locations">
   <h3>Locations</h3>
    <md-divider></md-divider>
-    <div ng-if="document.locations" ng-repeat="location in document.locations">
       <p>Placename: {{location.placename}} </p>
-      <p>Place: {{ (location.place).charAt(0) + (location.place).toLowerCase().slice(1) }} </p>
+      <p>Place: {{(location.place).charAt(0).toUpperCase()}}{{(location.place).toLowerCase().slice(1)}} </p>
       <p>Comment: {{location.comment}} </p>
       <div ng-if="location.gps" ng-repeat="gps in location.gps">
       <p>Location GPS (lat, lng): {{gps.longitude}} &nbsp;&nbsp; {{gps.latitude}}
@@ -34,23 +35,23 @@
 <br /><br />
   <h3>Dates</h3>
    <md-divider></md-divider>
-    <p>Release date: {{(document.release_date).substr(0,10)}} </p>
+    <p>Release date: {{(document.release_dates.start_date).substr(0,10)}} </p>
    <p>Intended removal date: {{(document.intended_removal_date).substr(0,10)}} </p>
-    <p>Removal date: {{(document.removal_date).substr(0,10)}} </p>
+    <p>Removal date: {{(document.release_dates.end_date).substr(0,10)}} </p>
      <p>Date comment: {{(document.comment_date).substr(0,10)}} </p>
 <br />
 
 
 
-        <h3>Stationaries</h3>
-        <md-divider></md-divider>
-        <p ng-if="document.field_hut"> Field hut </p>
-        <p ng-if="document.research_station"> Research station </p>
-        <p ng-if="document.cultural_heritage"> Cultural heritage </p>
-        <p ng-if="document.airstrip"> Airstrip </p>
-        <p ng-if="document.heliport"> Heliport </p>
-        <p>Other stationaries: {{ document.stationary_other }}</p>
-        <p>Quantity: {{ document.stationary_quantity }}</p><br />
+<h3>Stationaries</h3>
+<md-divider></md-divider>
+<p ng-if="document.field_hut"> Field hut </p>
+<p ng-if="document.research_station"> Research station </p>
+<p ng-if="document.cultural_heritage"> Cultural heritage </p>
+<p ng-if="document.airstrip"> Airstrip </p>
+<p ng-if="document.heliport"> Heliport </p>
+<p>Other stationaries: {{ document.stationary_other }}</p>
+<p>Quantity: {{ document.stationary_quantity }}</p><br />
 
 
   <h3>Instruments</h3>
@@ -65,14 +66,14 @@
   <h3>Contamination</h3>
   <md-divider></md-divider>
   <section ng-if="document.contamination" ng-repeat="ctmn in document.contamination">
-         <p>Type: {{ (ctmn.type).charAt(0) + (ctmn.type).toLowerCase().slice(1).replace("_", " ") }}</p>
-         <p>Quantity: {{ ctmn.quantity }}</p>
-         <p>Priority: {{ (ctmn.priority).charAt(0) + (ctmn.priority).toLowerCase().slice(1).replace("_", " ") }}</p>
-         <p>Impact likelihood: {{ (ctmn.impact_likelihood).charAt(0) + (ctmn.impact_likelihood).toLowerCase().slice(1).replace("_", " ") }}</p>
-         <p>Impact spatial: {{ (ctmn.impact_spatial).charAt(0) + (ctmn.impact_spatial).toLowerCase().slice(1).replace("_", " ") }}</p>
-         <p>Impact temporal: {{ (ctmn.impact_temporal).charAt(0) + (ctmn.impact_temporal).toLowerCase().slice(1).replace("_", " ") }}</p>
+         <p>Type: {{ ctmn.type }}</p>
+         <p>Priority: {{ ctmn.priority }}</p>
+         <p>Impact likelihood: {{ ctmn.impact_likelihood }}</p>
+         <p>Impact spatial: {{ ctmn.impact_spatial }}</p>
+         <p>Impact temporal: {{ ctmn.impact_temporal }}</p>
            <p ng-if="ctmn.impact_documented "> Impact documented </p>
             <p ng-if="!ctmn.impact_documented "> Impact not documented </p>
+         <p>Quantity: {{ ctmn.quantity }}</p>
          <br />
   </section>
 
@@ -80,12 +81,13 @@
   <h3>Fuel</h3>
   <md-divider></md-divider>
   <section ng-if="document.fuel" ng-repeat="fuel in document.fuel">
-     <p>Fuel tank: {{ (fuel.fuel_tank).charAt(0) + (fuel.fuel_tank).toLowerCase().slice(1).replace("_", " ") }}</p>
-     <p>Quantity: {{ fuel.quantity }} </p>
-     <p>Content: {{ (fuel.content).charAt(0) + (fuel.content).toLowerCase().slice(1) }}  </p>
+     <p>Fuel tank: {{ fuel.fuel_tank }}</p>
+     <p>Content: {{ fuel.content }}  </p>
      <p ng-if="fuel.drum_full"> Drums full </p>
      <p ng-if="fuel.drum_emptied"> Drums emptied to be removed </p>
-     <p>Expiration date:  {{ (fuel.expiration_date).substr(0,10) }} </p><br />
+     <p>Expiration date:  {{ (fuel.expiration_date).substr(0,10) }} </p>
+      <p>Quantity: {{ fuel.quantity }} </p>
+       <br />
   </section>
 
 
@@ -107,11 +109,11 @@
    <p ng-if="document.snow_sampling"> Snow sampling </p>
    <p ng-if="document.air_sampling"> Air sampling </p>
    <p ng-if="document.water_sampling"> Water sampling </p>
-   <p ng-if="document.other_invasive_activity"> Other </p>
+   <p ng-if="document.other_invasive_activity"> Other invasive activity</p>
 <br />
 
 
-
+<npdc:links links="links" related="related"></npdc:links>
 
   <h3>Links</h3>
   <md-divider></md-divider>
@@ -130,6 +132,23 @@
 
    <h3>Uploads</h3>
   <md-divider></md-divider>
+
+
+
+   <section ng-if="alternate">
+        <md-divider></md-divider>
+        <h3>Machine-readable metadata</h3>
+        <!-- @todo CC0 for metadata? <p></p> -->
+        <p>
+          <div ng-repeat="link in alternate">
+            <a ng-href="{{link.href}}" title="{{link.type}}">{{ link.title || link.href }}</a>
+            </div>
+        </p>
+      </section>
+
+      <section>
+        <npdc:document-meta></npdc:document-meta>
+      </section>
 
 
 

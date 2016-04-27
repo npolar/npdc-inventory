@@ -83,7 +83,7 @@
     "title": "Dates",
     "fields": [ {
             "id": "release_dates",
-            "title": "release_dates",
+            "title": "release dates",
             "items": {
               "fields": [{
                 "id": "start_date",

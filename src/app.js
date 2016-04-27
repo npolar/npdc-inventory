@@ -1,5 +1,5 @@
 'use strict';
-var environment = require('../environment');
+//var environment = require('../environment');
 var npdcCommon = require('npdc-common');
 var AutoConfig = npdcCommon.AutoConfig;
 
@@ -7,13 +7,19 @@ var angular = require('angular');
 
 var npdcInventoryApp = angular.module('npdcInventoryApp', ['npdcCommon']);
 
+//npdcInventoryApp.factory('Inventory', require('./Inventory'));
 npdcInventoryApp.controller('InventoryShowController', require('./show/InventoryShowController'));
 npdcInventoryApp.controller('InventorySearchController', require('./search/InventorySearchController'));
 npdcInventoryApp.controller('InventoryEditController', require('./edit/InventoryEditController'));
 
 // Bootstrap ngResource models using NpolarApiResource
 var resources = [
-  {'path': '/inventory', 'resource': 'Inventory'},
+   {'path': '/', 'resource': 'NpolarApi'},
+  {'path': '/user', 'resource': 'User'},
+  {'path': '/dataset', 'resource': 'Dataset' },
+  {'path': '/publication', 'resource': 'Publication' },
+  {'path': '/project', 'resource': 'Project' },
+  {'path': '/inventory', 'resource': 'Inventory'}
 ];
 
 resources.forEach(service => {
@@ -35,12 +41,14 @@ npdcInventoryApp.config($httpProvider => {
 // Inject npolarApiConfig and run
 npdcInventoryApp.run(function(npolarApiConfig, npdcAppConfig){
   var environment = "test";
-  console.log(environment);
   var autoconfig = new AutoConfig(environment);
   angular.extend(npolarApiConfig, autoconfig);
 
   npdcAppConfig.cardTitle = '';
   npdcAppConfig.toolbarTitle = 'NPI Inventory';
 
-  console.log("npolarApiConfig", npolarApiConfig);
+ // console.log("npolarApiConfig", npolarApiConfig);
 });
+
+
+
