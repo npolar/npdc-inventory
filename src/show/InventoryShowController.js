@@ -37,12 +37,6 @@ var InventoryShowController = function($controller, $routeParams,
     }
   };
 
-/*  let category = (inventory) => {
-  	console.log(inventory.category);
-  	cosole.log("XXXXRRRRRRR");
-  	return "hei";
-  } */
-
 
 
   let show = function() {
