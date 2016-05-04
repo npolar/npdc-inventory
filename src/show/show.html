@@ -26,9 +26,9 @@
       <p>Placename: {{location.placename}} </p>
       <p>Place: {{(location.place).charAt(0).toUpperCase()}}{{(location.place).toLowerCase().slice(1)}} </p>
       <p>Comment: {{location.comment}} </p>
-      <div ng-if="location.gps" ng-repeat="gps in location.gps">
+   <!--   <div ng-if="location.gps" ng-repeat="gps in location.gps">
       <p>Location GPS (lat, lng): {{gps.longitude}} &nbsp;&nbsp; {{gps.latitude}}
-      </div>
+      </div> -->
     </div>
 
 
@@ -43,7 +43,7 @@
 
 
 
-<h3>Stationaries</h3>
+<h3>Sites</h3>
 <md-divider></md-divider>
 <p ng-if="document.field_hut"> Field hut </p>
 <p ng-if="document.research_station"> Research station </p>

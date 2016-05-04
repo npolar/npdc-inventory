@@ -154,9 +154,6 @@
 			"description": "locations descr",
 			"items": {
 				"fields": {
-					"gps": {
-						"title": "gps"
-					},
 					"place": {
 						"title": "place",
 						"values": [

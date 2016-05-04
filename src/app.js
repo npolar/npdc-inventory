@@ -22,6 +22,8 @@ var resources = [
   {'path': '/inventory', 'resource': 'Inventory'}
 ];
 
+
+
 resources.forEach(service => {
   // Expressive DI syntax is needed here
   npdcInventoryApp.factory(service.resource, ['NpolarApiResource', function (NpolarApiResource) {

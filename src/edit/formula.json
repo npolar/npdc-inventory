@@ -7,7 +7,8 @@
       "description",
       "ephorte_no"
     ]
-  }, {
+  },
+  {
     "title": "People",
     "fields": [{
       "id": "people",
@@ -29,7 +30,38 @@
         ]
       }
     }]
-  }, {
+  },
+  {
+    "title": "Locations",
+    "fields": [{
+      "id": "locations",
+      "items": {
+        "fields": [
+          "!hemisphere",
+          "!country",
+          "placename",
+          "!area",
+          "place",
+          {
+    "id": "coverage",
+    "title": "coverage",
+    "fields": [{
+      "items": {
+        "fields": [
+          "north",
+          "south",
+          "east",
+          "west"
+        ]
+      }
+    }]
+  },
+          "comment"
+        ]
+      }
+    }]
+  },
+   {
     "title": "Organisations",
     "fields": [{
       "id": "organisations",
@@ -48,52 +80,23 @@
         ]
       }
     }]
-  }, {
-    "title": "Locations",
-    "fields": [{
-      "id": "locations",
-      "items": {
-        "fields": [
-          "!hemisphere",
-          "!country",
-          "placename",
-          "!area",
-          "place", {
-            "id": "gps",
-            "title": "GPS",
-            "items": {
-              "fields": [{
-                "id": "latitude",
-                "title": "latitude"
-              }, {
-                "id": "longitude",
-                "title": "longitude"
-              }, {
-                "id": "geometry",
-                "hidden": true
-              }]
-            }
-          },
-          "comment"
-        ]
-      }
-    }]
   },
-  {
+   {
     "title": "Dates",
-    "fields": [ {
-            "id": "release_dates",
-            "title": "release dates",
-            "items": {
-              "fields": [{
-                "id": "start_date",
-                "title": "release date"
-              }, {
-                "id": "end_date",
-                "title": "actual removal date"
-              }]
-            }
-      },
+    "fields": [{
+       "id":"release_dates",
+       "title":"release dates",
+       "fields": [
+          {
+            "id": "start_date",
+            "title": "release date"
+          },
+          {
+            "id": "end_date",
+            "title": "date actually removed"
+          }
+       ]
+       },
       {
           "id": "intended_removal_date",
           "title": "intended removal date (if in the future)"
@@ -101,8 +104,8 @@
       "comment_date"
     ]
   },
-   {
-    "title": "Stationaries",
+  {
+    "title": "sites",
     "fields": [
       "field_hut",
       "research_station",
@@ -116,7 +119,8 @@
         "title": "quantity"
       }
     ]
-  }, {
+  },
+  {
     "title": "Activities",
     "fields": [{
       "id": "rock_samples",
@@ -164,7 +168,8 @@
       "id": "other_invasive_activity",
       "title": "other invasive activity"
     }]
-  }, {
+  },
+  {
     "title": "Instruments",
     "fields": [{
       "id": "instrument",
@@ -174,7 +179,8 @@
         "quantity"
       ]
     }]
-  }, {
+  },
+  {
     "title": "Contamination",
     "fields": [{
       "id": "contamination",
@@ -200,7 +206,8 @@
         ]
       }
     }]
-  }, {
+  },
+  {
     "title": "Fuel",
     "fields": [{
       "id": "fuel",
@@ -219,7 +226,8 @@
         ]
       }
     }]
-  }, {
+  },
+  {
     "title": "Links",
     "fields": [{
       "id": "links",
@@ -239,19 +247,8 @@
         ]
       }
     }]
-  }, {
-    "title": "Photos",
-    "fields": [{
-      "id": "links2",
-      "instance": "data"
-    }]
-  }, {
-    "title": "Uploads",
-    "fields": [{
-      "id": "links23",
-      "instance": "data"
-    }]
-  }, {
+  },
+{
     "title": "Edits",
     "fields": [{
       "id": "created",
@@ -266,5 +263,6 @@
       "id": "updated_by",
       "disabled": true
     }]
-  }]
+  }
+]
 }
