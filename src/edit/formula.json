@@ -45,7 +45,6 @@
           {
     "id": "coverage",
     "title": "coverage",
-    "fields": [{
       "items": {
         "fields": [
           "north",
@@ -53,9 +52,7 @@
           "east",
           "west"
         ]
-      }
-    }]
-  },
+      }},
           "comment"
         ]
       }

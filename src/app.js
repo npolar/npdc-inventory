@@ -4,8 +4,9 @@ var npdcCommon = require('npdc-common');
 var AutoConfig = npdcCommon.AutoConfig;
 
 var angular = require('angular');
+require('npdc-common/src/wrappers/leaflet');
 
-var npdcInventoryApp = angular.module('npdcInventoryApp', ['npdcCommon']);
+var npdcInventoryApp = angular.module('npdcInventoryApp', ['npdcCommon','leaflet']);
 
 //npdcInventoryApp.factory('Inventory', require('./Inventory'));
 npdcInventoryApp.controller('InventoryShowController', require('./show/InventoryShowController'));
@@ -14,7 +15,7 @@ npdcInventoryApp.controller('InventoryEditController', require('./edit/Inventory
 
 // Bootstrap ngResource models using NpolarApiResource
 var resources = [
-   {'path': '/', 'resource': 'NpolarApi'},
+  {'path': '/', 'resource': 'NpolarApi'},
   {'path': '/user', 'resource': 'User'},
   {'path': '/dataset', 'resource': 'Dataset' },
   {'path': '/publication', 'resource': 'Publication' },
@@ -30,6 +31,12 @@ resources.forEach(service => {
     return NpolarApiResource.resource(service);
   }]);
 });
+
+
+npdcInventoryApp.factory('L', function() {
+  return window.L; // assumes Leaflet has already been loaded on the page
+});
+
 
 // Routing
 npdcInventoryApp.config(require('./router'));

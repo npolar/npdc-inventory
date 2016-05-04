@@ -43,14 +43,15 @@ var InventoryShowController = function($controller, $routeParams,
     $scope.show().$promise.then((inventory) => {
 
 
-      $scope.links = inventory.links.filter(l => (l.rel !== "alternate" && l.rel !== "edit") && l.rel !== "data");
+     // $scope.links = inventory.links.filter(l => (l.rel !== "alternate" && l.rel !== "edit") && l.rel !== "data");
 
 
-      $scope.data = inventory.links.filter(l => l.rel === "data");
+     // $scope.data = inventory.links.filter(l => l.rel === "data");
       //var cat = $scope.document.category;
       $scope.document.category = convert($scope.document.category);
-      console.log($scope.document.contamination);
-       console.log($scope.document.contamination.length);
+
+
+      if ($scope.document.contamination) {
       for(var i=0; i<($scope.document.contamination).length; i++){
         $scope.document.contamination[i].type = convert($scope.document.contamination[i].type);
         $scope.document.contamination[i].priority = convert($scope.document.contamination[i].priority);
@@ -58,9 +59,12 @@ var InventoryShowController = function($controller, $routeParams,
         $scope.document.contamination[i].impact_spatial = convert($scope.document.contamination[i].impact_spatial);
         $scope.document.contamination[i].impact_temporal = convert($scope.document.contamination[i].impact_temporal);
       }
+    }
+     if ($scope.document.fuel) {
       for(var j=0; j<($scope.document.fuel).length; j++){
          $scope.document.fuel[j].fuel_tank = convert($scope.document.fuel[j].fuel_tank);
       }
+    }
 
       $scope.images = inventory.links.filter(l => {
         return (/^image\/.*/).test(l.type);
@@ -72,6 +76,18 @@ var InventoryShowController = function($controller, $routeParams,
         title: "DCAT (JSON-LD)",
         type: "application/ld+json"
       });
+
+      $scope.mapOptions = {};
+
+      if (inventory.locations) {
+
+         let bounds = (inventory.locations).map((locations) => [[locations.coverage.south, locations.coverage.west], [locations.coverage.north, locations.coverage.east]]);
+         $scope.mapOptions.coverage = bounds;
+         $scope.mapOptions.geojson = "geojson";
+
+
+      }
+      $scope.mapOptions.geometries = inventory.links.filter(l => l.type === "application/vnd.geo+json").map(l => l.href);
 
 
       $scope.authors = authors(inventory).map(a => {
