@@ -1,7 +1,7 @@
 'use strict';
 
-var InventoryEditController = function($scope, $controller, $routeParams, Inventory, formula,
-  formulaAutoCompleteService, npdcAppConfig, chronopicService, fileFunnelService, NpolarLang) {
+var InventoryEditController = function($scope, $controller, $routeParams, Inventory, formula, formulaAutoCompleteService, npdcAppConfig,
+  chronopicService, fileFunnelService, NpolarLang, npolarApiConfig, NpolarApiSecurity, NpolarMessage, npolarCountryService) {
   'ngInject';
 
   // EditController -> NpolarEditController
@@ -12,28 +12,55 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   // Inventory -> npolarApiResource -> ngResource
   $scope.resource = Inventory;
 
-  let formulaOptions = {
-    schema: '//api.npolar.no/schema/inventory',
-    form: 'edit/formula.json',
-    language: NpolarLang.getLang(),
-    templates: npdcAppConfig.formula.templates.concat([{
+  let templates = [{
+      match: "people_item",
+      template: '<npdc:formula-person></npdc:formula-person>'
+    }, {
+      match: "placenames_item",
+      template: '<npdc:formula-placename></npdc:formula-placename>'
+    },
+    {
+      match: "coverage_item",
+      template: "<inventory:coverage></inventory:coverage>"
+    }
+  ];
+
+  let i18n = [{
+      map: require('./en.json'),
+      code: 'en'
+    },
+    {
+      map: require('./no.json'),
+      code: 'nb_NO',
+    }];
+
+   $scope.formula = formula.getInstance({
+     schema: '//api.npolar.no/schema/inventory',
+     form: 'edit/formula.json',
+     language: NpolarLang.getLang(),
+     templates:  npdcAppConfig.formula.templates.concat(templates),
+     languages: npdcAppConfig.formula.languages.concat(i18n)
+   });
+
+
+ /*   npdcAppConfig.formula.templates.concat([{
       match(field) {
         return ["alternate", "edit", "via"].includes(field.value.rel);
       },
       hidden: true
-    },
-    {
-      match: "people_item",
-      template: '<npdc:formula-person></npdc:formula-person>'
-    },
-    {
+      },
+      {
+        match: "people_item",
+        template: '<npdc:formula-person></npdc:formula-person>'
+      },
+      {
         match: "coverage_item",
         template: "<inventory:coverage></inventory:coverage>"
       },
       {
-      match: "placenames_item",
-      template: '<npdc:formula-placename></npdc:formula-placename>'
-    } ]),
+        match: "placenames_item",
+        template: '<npdc:formula-placename></npdc:formula-placename>'
+      } ]),
      languages: npdcAppConfig.formula.languages.concat([{
       map: require('./en.json'),
       code: 'en'
@@ -42,9 +69,11 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
       map: require('./no.json'),
       code: 'nb_NO',
     }])
-  };
+  }; */
 
-  $scope.formula = formula.getInstance(formulaOptions);
+
+
+
   formulaAutoCompleteService.autocompleteFacets(['organisations.name','people.first_name', 'people.last_name', 'links.type'], Inventory, $scope.formula);
 
   chronopicService.defineOptions({ match: 'released', format: '{date}'});
@@ -53,18 +82,8 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   }, format: '{date}'});
 
 
-  /* let dataLinkSuccess = function (file) {
-    return {
-      rel: 'DATA',
-      href: file.url,
-      title: file.filename,
-      length: file.file_size,
-      hash: [file.md5sum],
-      type: file.content_type
-    };
-  }; */
 
-   let fileToValueMapper = function (file) {
+   /*let fileToValueMapper = function (file) {
       return {
         rel: 'data',
         href: file.url,
@@ -84,15 +103,46 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
         file_size: value.length,
         url: value.href
       };
-    };
+    }; */
 
-  fileFunnelService.fileUploader({
+    function initFileUpload(formula) {
+
+    let server = `${NpolarApiSecurity.canonicalUri($scope.resource.path)}/:id/_file`;
+    fileFunnelService.fileUploader({
+      match(field) {
+        return field.id === "files";
+      },
+      server,
+      multiple: true,
+      progress: false,
+      restricted: function () {
+        return !formula.getModel().license;
+      },
+      fileToValueMapper: Inventory.fileObject,
+      valueToFileMapper: Inventory.hashiObject,
+      fields: [] // 'type', 'hash'
+    }, formula);
+  }
+
+
+  try {
+    initFileUpload($scope.formula);
+    // edit (or new) action
+    $scope.edit();
+  } catch (e) {
+    NpolarMessage.error(e);
+  }
+};
+
+
+
+ /* fileFunnelService.fileUploader({
     match(field) {
       return field.id === "links" && field.instance === "data";
     },
     multiple: true,
     server: 'https://apptest.data.npolar.no:3000/inventory/:id/_file/',
-    fileToValueMapper, valueToFileMapper, fields: ['rel']}, $scope.formula);
+    fileToValueMapper, valueToFileMapper, fields: ['rel']}, $scope.formula); */
 
 
   /*fileFunnelService.fileUploader({
@@ -108,7 +158,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   }, $scope.formula); */
 
 
-  $scope.edit();
-};
+ /* $scope.edit();
+}; */
 
 module.exports = InventoryEditController;

@@ -1,4 +1,18 @@
 {
+	"fieldsets" : [
+    "Kjernedata",
+    "Personer",
+    "Lokasjoner",
+    "Organisasjoner",
+    "Datoer",
+    "Stasjonært",
+    "Aktiviteter",
+    "Instrumenter",
+    "Forurensing",
+    "Brennstoff",
+    "Lenker",
+    "Endringer"
+    ],
 	"fields": {
 		"category": {
 			"title": "kategori",
@@ -101,8 +115,8 @@
 			}
 		},
 		"fuel": {
-			"title": "brensel",
-			"description": "brensel",
+			"title": "brennstoff",
+			"description": "brennstoff",
 			"items": {
 				"fields": {
 				"fuel_tank": {
@@ -116,7 +130,7 @@
 
 			},
 			"content": {
-			   	     "title": "type brensel",
+			   	     "title": "type brennstoff",
                     "values": [
                             "ingen",
 							"diesel",

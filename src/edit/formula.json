@@ -238,6 +238,10 @@
       }
     }]
   },
+  {
+    "title": "Files",
+    "fields": ["files"]
+  },
 {
     "title": "Edits",
     "fields": [{

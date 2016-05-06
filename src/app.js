@@ -41,6 +41,7 @@ npdcInventoryApp.factory('L', function() {
 // Routing
 npdcInventoryApp.config(require('./router'));
 
+
 npdcInventoryApp.config(($httpProvider, npolarApiConfig) => {
   var autoconfig = new AutoConfig("test");
   angular.extend(npolarApiConfig, autoconfig, { resources });
