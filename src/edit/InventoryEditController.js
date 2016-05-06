@@ -43,67 +43,14 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
    });
 
 
- /*   npdcAppConfig.formula.templates.concat([{
-      match(field) {
-        return ["alternate", "edit", "via"].includes(field.value.rel);
-      },
-      hidden: true
-      },
-      {
-        match: "people_item",
-        template: '<npdc:formula-person></npdc:formula-person>'
-      },
-      {
-        match: "coverage_item",
-        template: "<inventory:coverage></inventory:coverage>"
-      },
-      {
-        match: "placenames_item",
-        template: '<npdc:formula-placename></npdc:formula-placename>'
-      } ]),
-     languages: npdcAppConfig.formula.languages.concat([{
-      map: require('./en.json'),
-      code: 'en'
-    },
-    {
-      map: require('./no.json'),
-      code: 'nb_NO',
-    }])
-  }; */
 
-
-
-
-  formulaAutoCompleteService.autocompleteFacets(['organisations.name','people.first_name', 'people.last_name', 'links.type'], Inventory, $scope.formula);
+  formulaAutoCompleteService.autocompleteFacets(['organisations.name','people.first_name', 'people.last_name', 'locations.placename'], Inventory, $scope.formula);
 
   chronopicService.defineOptions({ match: 'released', format: '{date}'});
   chronopicService.defineOptions({ match(field) {
     return field.path.match(/^#\/activity\/\d+\/.+/);
   }, format: '{date}'});
 
-
-
-   /*let fileToValueMapper = function (file) {
-      return {
-        rel: 'data',
-        href: file.url,
-        title: file.filename,
-        length: file.file_size,
-        hash: [file.md5sum],
-        type: file.content_type
-      };
-    };
-
-    let valueToFileMapper = function (value) {
-      if (value.rel !== 'data') {
-        return null;
-      }
-      return {
-        filename: value.title,
-        file_size: value.length,
-        url: value.href
-      };
-    }; */
 
     function initFileUpload(formula) {
 
@@ -134,31 +81,5 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   }
 };
 
-
-
- /* fileFunnelService.fileUploader({
-    match(field) {
-      return field.id === "links" && field.instance === "data";
-    },
-    multiple: true,
-    server: 'https://apptest.data.npolar.no:3000/inventory/:id/_file/',
-    fileToValueMapper, valueToFileMapper, fields: ['rel']}, $scope.formula); */
-
-
-  /*fileFunnelService.fileUploader({
-    match(field) {
-       return field.id === "links" && field.instance === "data";
-    },
-    server: 'https://apptest.data.npolar.no:3000/inventory/:id/_file/',
-    successCallback: dataLinkSuccess,
-    filterValues: function (value) {
-      return value.rel.toUpperCase() === 'DATA';
-    },
-    restricted: false
-  }, $scope.formula); */
-
-
- /* $scope.edit();
-}; */
 
 module.exports = InventoryEditController;

@@ -11,6 +11,7 @@
     "Forurensing",
     "Brennstoff",
     "Lenker",
+    "Filopplasting",
     "Endringer"
     ],
 	"fields": {
@@ -34,11 +35,123 @@
 							"forskningsstasjon"
 						]
 					},
+	"title": {
+        "title": "tittel"
+    },
+    "created_by": {
+        "title": "laget av"
+    },
+    "updated_by": {
+        "title": "oppdatert av"
+    },
+    "created": {
+        "title": "laget dato"
+    },
+    "files": {
+      "title": "filer"
+    },
+    "updated": {
+        "title": "oppdatert dato"
+    },
+     "description": {
+      "title": "kort beskrivelse"
+    },
+     "ephorte_no": {
+      "title": "ePhorte nr"
+    },
+     "intended_removal_date": {
+      "title": "antatt fjerningsdato"
+    },
+    "comment_date": {
+       "title": "kommentar til datoer"
+    },
+    "rock_samples": {
+        "title": "steinprøver"
+    },
+    "soil_samples": {
+        "title": "jordprøver"
+    },
+    "sediment_samples": {
+        "title": "sediment prøver"
+    },
+    "flora_samples": {
+        "title": "prøver flora"
+    },
+    "fauna_samples": {
+        "title": "prøver fauna"
+    },
+    "interference_fauna_flora": {
+        "title": "forstyrrelse fauna/flora"
+    },
+    "introduced_species": {
+        "title": "innføring av nye arter"
+    },
+    "animal_censors": {
+        "title": "dyreprøver"
+    },
+    "explosives": {
+        "title": "eksplosiver"
+    },
+    "radionucleides": {
+        "title": "radionukleære prøver"
+    },
+    "ice_sampling": {
+        "title": "isprøver"
+    },
+    "ice_coring": {
+        "title": "iskjerneprøver"
+    },
+    "snow_sampling": {
+        "title": "snøprøver"
+    },
+    "air_sampling": {
+        "title": "luftprøver"
+    },
+    "water_sampling": {
+        "title": "vannprøver"
+    },
+    "other_invasive_activity": {
+        "title": "annen invasiv aktivitet"
+    },
+    "field_hut": {
+          "description": "Location is a field camp",
+          "title": "hytte"
+    },
+    "research_station": {
+            "title": "forskningsstasjon"
+    },
+    "cultural_heritage":{
+            "title": "kulturminne"
+    },
+    "airstrip": {
+            "title": "flylandingsplass"
+    },
+    "heliport":{
+             "title": "helikopterlandingsplass"
+    },
+     "stationary_other":{
+            "title": "andre stasjonære objekter"
+    },
+    "stationary_quantity": {
+            "title": "antall"
+    },
     "people": {
 			"title": "personell",
 			"description": "kontaktpersoner",
 			"items": {
 				"fields": {
+					"first_name": {
+        				"title": "fornavn"
+   					 },
+   					 "last_name": {
+        				"title": "etternavn"
+   					 },
+   					 "email":{
+        				"title": "epost"
+   					 },
+   					 "phone":{
+        				"title": "telefon"
+   					 },
 					"role": {
 						"title": "rolle",
 						"values": [
@@ -46,11 +159,68 @@
 							"deltaker",
 							"observatør"
 						]
-					}
+					},
+					 "organisation":{
+        				"title": "organisasjon"
+   					 }
               }
 			}
-		},
-		"contamination": {
+	},
+	"organisations":{
+		"title": "organisasjoner",
+			"description": "organisasjoner",
+			"items": {
+				"fields": {
+                 "name":{
+        		   "title": "navn"
+   		},
+   		 "address": {
+              "title": "adresse"
+          },
+          "zip": {
+              "title": "postnummer"
+          },
+          "city": {
+              "title": "by"
+          },
+          "country": {
+              "title": "land"
+          },
+          "href": {
+            "title": "weblenke"
+          }
+	  }
+	}
+	},
+	"release_dates":{
+    "title": "utsettingsdatoer",
+     "fields":{
+     	 "start_date":{
+        		"title": "start dato"
+   		},
+   		 "end_date": {
+              "title": "slutt dato"
+          }
+     }
+      },
+	"instrument":{
+		"title": "instrumenter",
+			"description": "instrumenter",
+			"items": {
+				"fields": {
+        "instrument":{
+        		"title": "instrument"
+   		},
+   		 "instrument_description": {
+              "title": "instrument beskrivelse"
+          },
+          "quantity": {
+              "title": "antall"
+          }
+	  }
+	}
+	},
+	"contamination": {
 			"title": "forurensing",
 			"description": "forurensing",
 			"items": {
@@ -71,10 +241,13 @@
 							"kjemikalier og batterier"
 						]
 					},
+					"quantity":{
+                        "title": "antall"
+					},
 					"priority": {
 						 "title": "prioritet",
 						 "values": [
-						    "unkjent",
+						    "ukjent",
                             "utbedring høy prioritert",
                             "utbedring middels prioritert",
                             "utbedring lavt prioritert",
@@ -87,7 +260,7 @@
 						 "values": [
 						 "ukjent",
 						 "høyst sannsynlig skadelig",
-						 "sannsynlig skadelig",
+						 "sannsynligvis skadelig",
 						 "kanskje skadelig",
 						 "lite sannsynlig"
 						 ]
@@ -97,18 +270,21 @@
 						 "values": [
 						  "ukjent",
 						  "lokalt <100m²",
-						  "middels omkrets 100m – 1km²",
-						  "stor omkrets >1km²"
+						  "middels 100m – 1km²",
+						  "stor >1km²"
 						 ]
 					},
 					"impact_temporal": {
 						 "title": "påvirkning over tid",
 						 "values": [
-						  "unkjent",
+						  "ukjent",
 						  "kort tid <1 år",
 						  "påvirkning 1-10 år",
 						  "langtidsvirkning > 10 år"
 						 ]
+					},
+					"impact_documented":{
+						"title": "ja, påvirkning er blitt dokumentert"
 					}
 				}
 
@@ -129,6 +305,18 @@
 						]
 
 			},
+			"quantity": {
+				"title":"antall"
+			},
+            "drum_full":{
+                "title": "fullt fat"
+            },
+            "drum_emptied":{
+                "title": "tomt fat til fjerning"
+             },
+            "expiration_date":{
+                 "title": "utløpsdato"
+             },
 			"content": {
 			   	     "title": "type brennstoff",
                     "values": [
@@ -137,7 +325,7 @@
 							"jet A-1",
 							"bensin"
 						]
-			   }
+			}
 		}
 		}
 		},
@@ -146,7 +334,13 @@
 			"description": "lenker",
 			"items": {
 				"fields": {
-					"rel": {
+					  "title": {
+                  "title": "tittel"
+                },
+                "href":{
+ 					"title":"weblenke"
+                },
+				"rel": {
 						"title": "lenke type",
 						"values": [
 							"service",
@@ -165,6 +359,18 @@
 			"description": "beskrivelse av lokasjon",
 			"items": {
 				"fields": {
+					"placename":{
+						"title":"stedsnavn"
+					},
+					"area":{
+ 						"title":"område"
+					},
+					"comment":{
+ 						"title":"kommentar"
+					},
+					"coverage":{
+ 						"title":"dekning"
+					},
 					"place": {
 						"title": "sted",
 						"values": [

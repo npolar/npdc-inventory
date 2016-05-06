@@ -24,9 +24,9 @@
           },
           "!id",
           "email",
+          "organisation",
           "phone",
-          "role",
-          "organisation"
+          "role"
         ]
       }
     }]
