@@ -1,7 +1,7 @@
 'use strict';
 
 var InventoryEditController = function($scope, $controller, $routeParams, Inventory, formula,
-  formulaAutoCompleteService, npdcAppConfig, chronopicService, fileFunnelService) {
+  formulaAutoCompleteService, npdcAppConfig, chronopicService, fileFunnelService, NpolarLang) {
   'ngInject';
 
   // EditController -> NpolarEditController
@@ -15,24 +15,37 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   let formulaOptions = {
     schema: '//api.npolar.no/schema/inventory',
     form: 'edit/formula.json',
+    language: NpolarLang.getLang(),
     templates: npdcAppConfig.formula.templates.concat([{
       match(field) {
         return ["alternate", "edit", "via"].includes(field.value.rel);
       },
       hidden: true
-    } ]),
-   languages: npdcAppConfig.formula.languages.concat([
+    },
     {
-      map: require('./translation.json'),
+      match: "people_item",
+      template: '<npdc:formula-person></npdc:formula-person>'
+    },
+    {
+        match: "coverage_item",
+        template: "<inventory:coverage></inventory:coverage>"
+      },
+      {
+      match: "placenames_item",
+      template: '<npdc:formula-placename></npdc:formula-placename>'
+    } ]),
+     languages: npdcAppConfig.formula.languages.concat([{
+      map: require('./en.json'),
       code: 'en'
-    }]),
-   onsave: function (model) {
-    console.log(model);
-   }
+    },
+    {
+      map: require('./no.json'),
+      code: 'nb_NO',
+    }])
   };
 
   $scope.formula = formula.getInstance(formulaOptions);
-  formulaAutoCompleteService.autocompleteFacets(['people.first_name', 'people.last_name'], Inventory, $scope.formula);
+  formulaAutoCompleteService.autocompleteFacets(['organisations.name','people.first_name', 'people.last_name', 'links.type'], Inventory, $scope.formula);
 
   chronopicService.defineOptions({ match: 'released', format: '{date}'});
   chronopicService.defineOptions({ match(field) {

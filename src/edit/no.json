@@ -1,0 +1,168 @@
+{
+	"fields": {
+		"category": {
+			"title": "kategori",
+			"description": "kategori",
+						"values": [
+						    "ukjent",
+							"airstrip",
+							"bygning",
+							"forurensing",
+							"kulturminne",
+							"datafangst",
+							"depot",
+							"hytte",
+							"helikopterlandingsplass",
+							"feltaktivitet",
+							"annet",
+							"forskningsmonitorering",
+							"forskningsprosjekt",
+							"forskningsstasjon"
+						]
+					},
+    "people": {
+			"title": "personell",
+			"description": "kontaktpersoner",
+			"items": {
+				"fields": {
+					"role": {
+						"title": "rolle",
+						"values": [
+							"leder",
+							"deltaker",
+							"observatør"
+						]
+					}
+              }
+			}
+		},
+		"contamination": {
+			"title": "forurensing",
+			"description": "forurensing",
+			"items": {
+				"fields": {
+					"type": {
+						"title": "type",
+						"values": [
+						    "ukjent",
+							"metall",
+							"glass",
+							"blandingsavfall",
+							"papir/papp",
+							"plastikk",
+							"matavfall",
+							"kloakk/urin (ikke kompostert)",
+							"forurensing oljeprodukter",
+							"kloakk kompostert",
+							"kjemikalier og batterier"
+						]
+					},
+					"priority": {
+						 "title": "prioritet",
+						 "values": [
+						    "unkjent",
+                            "utbedring høy prioritert",
+                            "utbedring middels prioritert",
+                            "utbedring lavt prioritert",
+                            "videre vurderinger nødvendig",
+                            "monitorering nødvendig"
+						 ]
+					},
+					"impact_likelihood": {
+						 "title": "sannsynlig skadevirkning",
+						 "values": [
+						 "ukjent",
+						 "høyst sannsynlig skadelig",
+						 "sannsynlig skadelig",
+						 "kanskje skadelig",
+						 "lite sannsynlig"
+						 ]
+					},
+					"impact_spatial": {
+						 "title": "påvirkning areal",
+						 "values": [
+						  "ukjent",
+						  "lokalt <100m²",
+						  "middels omkrets 100m – 1km²",
+						  "stor omkrets >1km²"
+						 ]
+					},
+					"impact_temporal": {
+						 "title": "påvirkning over tid",
+						 "values": [
+						  "unkjent",
+						  "kort tid <1 år",
+						  "påvirkning 1-10 år",
+						  "langtidsvirkning > 10 år"
+						 ]
+					}
+				}
+
+			}
+		},
+		"fuel": {
+			"title": "brensel",
+			"description": "brensel",
+			"items": {
+				"fields": {
+				"fuel_tank": {
+                    "title": "tank",
+                    "values": [
+                            "ingen",
+							"11 kubikk",
+							"24 kubikk",
+							"fat"
+						]
+
+			},
+			"content": {
+			   	     "title": "type brensel",
+                    "values": [
+                            "ingen",
+							"diesel",
+							"jet A-1",
+							"bensin"
+						]
+			   }
+		}
+		}
+		},
+		"links": {
+			"title": "lenker",
+			"description": "lenker",
+			"items": {
+				"fields": {
+					"rel": {
+						"title": "lenke type",
+						"values": [
+							"service",
+							"prosjekt",
+							"publikasjon",
+							"datsenter",
+							"forelder"
+						]
+					}
+				}
+
+			}
+		},
+		"locations": {
+			"title": "lokasjon",
+			"description": "beskrivelse av lokasjon",
+			"items": {
+				"fields": {
+					"place": {
+						"title": "sted",
+						"values": [
+						    "ingen",
+							"Troll",
+							"Tor",
+							"Shelf og travers"
+						]
+					}
+				}
+
+			}
+		}
+	}
+}

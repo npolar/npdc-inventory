@@ -8,10 +8,10 @@ require('npdc-common/src/wrappers/leaflet');
 
 var npdcInventoryApp = angular.module('npdcInventoryApp', ['npdcCommon','leaflet']);
 
-//npdcInventoryApp.factory('Inventory', require('./Inventory'));
 npdcInventoryApp.controller('InventoryShowController', require('./show/InventoryShowController'));
 npdcInventoryApp.controller('InventorySearchController', require('./search/InventorySearchController'));
 npdcInventoryApp.controller('InventoryEditController', require('./edit/InventoryEditController'));
+npdcInventoryApp.directive('inventoryCoverage', require('./edit/coverage/coverageDirective'));
 
 // Bootstrap ngResource models using NpolarApiResource
 var resources = [
@@ -41,8 +41,23 @@ npdcInventoryApp.factory('L', function() {
 // Routing
 npdcInventoryApp.config(require('./router'));
 
+npdcInventoryApp.config(($httpProvider, npolarApiConfig) => {
+  var autoconfig = new AutoConfig("test");
+  angular.extend(npolarApiConfig, autoconfig, { resources });
+  console.debug("npolarApiConfig", npolarApiConfig);
+
+  $httpProvider.interceptors.push('npolarApiInterceptor');
+});
+
+npdcInventoryApp.run(($http, npdcAppConfig, NpolarTranslate, NpolarLang) => {
+  NpolarTranslate.loadBundles('npdc-inventory');
+  npdcAppConfig.toolbarTitle = 'Inventory';
+});
+
+
+
 // API HTTP interceptor
-npdcInventoryApp.config($httpProvider => {
+/*npdcInventoryApp.config($httpProvider => {
   $httpProvider.interceptors.push('npolarApiInterceptor');
 });
 
@@ -54,10 +69,10 @@ npdcInventoryApp.run(function(npolarApiConfig, npdcAppConfig){
   angular.extend(npolarApiConfig, autoconfig);
 
   npdcAppConfig.cardTitle = '';
-  npdcAppConfig.toolbarTitle = 'NPI Inventory';
+  npdcAppConfig.toolbarTitle = 'NPI Inventory'; */
 
  // console.log("npolarApiConfig", npolarApiConfig);
-});
+//});
 
 
 

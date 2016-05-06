@@ -43,16 +43,9 @@
           "!area",
           "place",
           {
-    "id": "coverage",
-    "title": "coverage",
-      "items": {
-        "fields": [
-          "north",
-          "south",
-          "east",
-          "west"
-        ]
-      }},
+          "id":"coverage",
+          "title":"coverage"
+          },
           "comment"
         ]
       }
