@@ -101,7 +101,9 @@
       "research_station",
       "cultural_heritage",
       "airstrip",
-      "heliport", {
+      "heliport",
+      "troll_cargo_site",
+      {
         "id": "stationary_other",
         "title": "other stationaries"
       }, {

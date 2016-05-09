@@ -129,8 +129,11 @@
     "heliport":{
              "title": "helikopterlandingsplass"
     },
-     "stationary_other":{
+    "stationary_other":{
             "title": "andre stasjonære objekter"
+    },
+    "troll_cargo_site":{
+             "title":"Troll cargo stasjon"
     },
     "stationary_quantity": {
             "title": "antall"
