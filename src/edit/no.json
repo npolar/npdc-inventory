@@ -60,7 +60,7 @@
       "title": "ePhorte nr"
     },
      "intended_removal_date": {
-      "title": "antatt fjerningsdato"
+      "title": "antatt innhentingsdato"
     },
     "comment_date": {
        "title": "kommentar til datoer"
@@ -133,14 +133,14 @@
             "title": "andre stasjonære objekter"
     },
     "troll_cargo_site":{
-             "title":"Troll cargo stasjon"
+             "title":"Troll lasteplass shelfen"
     },
     "stationary_quantity": {
             "title": "antall"
     },
     "people": {
 			"title": "personell",
-			"description": "kontaktpersoner",
+			"description": "Liste med kontaktpersoner",
 			"items": {
 				"fields": {
 					"first_name": {
@@ -164,7 +164,7 @@
 						]
 					},
 					 "organisation":{
-        				"title": "organisasjon"
+        				"title": "organisasjoner tilnyttet"
    					 }
               }
 			}
@@ -199,16 +199,16 @@
     "title": "utsettingsdatoer",
      "fields":{
      	 "start_date":{
-        		"title": "start dato"
+        		"title": "utsettingsdato"
    		},
    		 "end_date": {
-              "title": "slutt dato"
+              "title": "innhentingsdato"
           }
      }
       },
 	"instrument":{
 		"title": "instrumenter",
-			"description": "instrumenter",
+			"description": "Instrumenter brukt",
 			"items": {
 				"fields": {
         "instrument":{
@@ -225,7 +225,7 @@
 	},
 	"contamination": {
 			"title": "forurensing",
-			"description": "forurensing",
+			"description": "Dokumentasjon på forurensing",
 			"items": {
 				"fields": {
 					"type": {
@@ -295,7 +295,7 @@
 		},
 		"fuel": {
 			"title": "brennstoff",
-			"description": "brennstoff",
+			"description": "Behandling av brennstoff",
 			"items": {
 				"fields": {
 				"fuel_tank": {
@@ -334,17 +334,17 @@
 		},
 		"links": {
 			"title": "lenker",
-			"description": "lenker",
+			"description": "Lenker som har forbindelse til registreringen",
 			"items": {
 				"fields": {
 					  "title": {
                   "title": "tittel"
                 },
                 "href":{
- 					"title":"weblenke"
+ 					"title":"weblenke inkludert protokoll (f.eks. http://www.npolar.no)"
                 },
 				"rel": {
-						"title": "lenke type",
+						"title": "lenke type (forbindelse mellom denne registreringen og lenke)",
 						"values": [
 							"service",
 							"prosjekt",
@@ -359,7 +359,7 @@
 		},
 		"locations": {
 			"title": "lokasjon",
-			"description": "beskrivelse av lokasjon",
+			"description": "Lokasjonsbeskrivelse",
 			"items": {
 				"fields": {
 					"placename":{

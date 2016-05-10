@@ -20,7 +20,8 @@ var resources = [
   {'path': '/dataset', 'resource': 'Dataset' },
   {'path': '/publication', 'resource': 'Publication' },
   {'path': '/project', 'resource': 'Project' },
-  {'path': '/inventory', 'resource': 'Inventory'}
+  {'path': '/inventory', 'resource': 'Inventory'},
+   {'path': '/expedition', 'resource': 'Expedition'}
 ];
 
 
