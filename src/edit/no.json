@@ -341,19 +341,19 @@
                   "title": "tittel"
                 },
                 "href":{
- 					"title":"weblenke inkludert protokoll (f.eks. http://www.npolar.no)"
+ 					        "title":"weblenke inkludert protokoll (f.eks. http:// som i lenken http://www.npolar.no)"
                 },
-				"rel": {
-						"title": "lenke type (forbindelse mellom denne registreringen og lenke)",
-						"values": [
-							"service",
-							"prosjekt",
-							"publikasjon",
-							"datsenter",
-							"forelder"
-						]
-					}
-				}
+				       "rel": {
+						      "title": "lenke type (forbindelse mellom denne registreringen og lenke)",
+						      "values": [
+      							"service",
+      							"prosjekt",
+      							"publikasjon",
+      							"datsenter",
+      							"forelder"
+						      ]
+					     }
+				  }
 
 			}
 		},

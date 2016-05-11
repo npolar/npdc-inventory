@@ -13,20 +13,25 @@
     "fields": [{
       "id": "people",
       "items": {
-        "fields": [{
+        "fields": [
+            "!id",
+          {
             "id": "first_name",
-            "title": "first name",
-            "autocomplete": "//api.npolar.no/person/?fields=first_name,last_name,organisation,email&format=json&variant=array"
+            "title": "first name"
           }, {
             "id": "last_name",
-            "title": "last name",
-            "autocomplete": "//api.npolar.no/person/?fields=first_name,last_name,organisation,email&format=json&variant=array"
+            "title": "last name"
           },
-          "!id",
-          "email",
-          "organisation",
-          "phone",
-          "role"
+           "organisation",
+           {
+            "id": "email",
+            "title": "email"
+           },
+          {
+            "id": "phone",
+            "title": "phone"
+          },
+           "role"
         ]
       }
     }]
@@ -73,25 +78,16 @@
   },
    {
     "title": "Dates",
-    "fields": [{
+    "fields": [
+       {
        "id":"release_dates",
-       "title":"release dates",
-       "fields": [
-          {
-            "id": "start_date",
-            "title": "release date"
-          },
-          {
-            "id": "end_date",
-            "title": "date actually removed"
-          }
-       ]
+       "title":"release dates"
        },
       {
           "id": "intended_removal_date",
           "title": "intended removal date (if in the future)"
       },
-      "comment_date"
+       "comment_date"
     ]
   },
   {
@@ -227,10 +223,10 @@
         "fields": [
           "title", {
             "id": "rel",
-            "title": "link relation to this entry"
+            "title": "type of link (relation between this registration and the link)"
           }, {
             "id": "href",
-            "title": "link (please include protocol, f.ex 'http://' or 'https://')"
+            "title": "link (please include protocol f.ex. 'http://' as in link http://www.npolar.no)"
           },
           "title",
           "!hreflang",

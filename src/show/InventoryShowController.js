@@ -82,6 +82,7 @@ var InventoryShowController = function($controller, $routeParams,
       if (inventory.locations) {
 
          let bounds = (inventory.locations).map((locations) => [[locations.coverage.south, locations.coverage.west], [locations.coverage.north, locations.coverage.east]]);
+        // $scope.mapOptions.coverage = bounds;
          $scope.mapOptions.coverage = bounds;
          $scope.mapOptions.geojson = "geojson";
 

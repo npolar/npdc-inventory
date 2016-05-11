@@ -12,13 +12,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   // Inventory -> npolarApiResource -> ngResource
   $scope.resource = Inventory;
 
-  let templates = [{
-      match: "people_item",
-      template: '<npdc:formula-person></npdc:formula-person>'
-    }, {
-      match: "placenames_item",
-      template: '<npdc:formula-placename></npdc:formula-placename>'
-    },
+  let templates = [
     {
       match: "coverage_item",
       template: "<inventory:coverage></inventory:coverage>"
@@ -43,8 +37,30 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
    });
 
 
+ /* formulaAutoCompleteService.autocomplete({
+    match: "#/conference/country",
+    querySource: npolarApiConfig.base + '/country',
+    label: 'native',
+    value: 'code'
+  }, $scope.formula); */
 
-  formulaAutoCompleteService.autocompleteFacets(['organisations.name','people.first_name', 'people.last_name', 'locations.placename'], Inventory, $scope.formula);
+  formulaAutoCompleteService.autocomplete({
+    match: "#/organisations/country",
+    querySource: npolarApiConfig.base + '/country',
+    label: 'name',
+    value: 'code'
+  }, $scope.formula);
+
+  formulaAutoCompleteService.autocomplete({
+    match: "#/instrument/instrument",
+    querySource: npolarApiConfig.base + '/gcmd/concept/?q=&filter-version=8.0&filter-ancestors=Instruments',
+    label: 'title',
+    value: 'label'
+  }, $scope.formula);
+
+
+  formulaAutoCompleteService.autocompleteFacets(['people.first_name', 'people.last_name', 'people.organisation','people.email','people.phone',
+  'organisations.name','organisations.address','organisations.zip','organisations.city','organisations.href'], Inventory, $scope.formula);
 
   chronopicService.defineOptions({ match: 'released', format: '{date}'});
   chronopicService.defineOptions({ match(field) {
