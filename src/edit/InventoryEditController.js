@@ -14,7 +14,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
 
   let templates = [
     {
-      match: "coverage_item",
+      match: "locations_item",
       template: "<inventory:coverage></inventory:coverage>"
     }
   ];

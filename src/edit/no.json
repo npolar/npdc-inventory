@@ -371,9 +371,6 @@
 					"comment":{
  						"title":"kommentar"
 					},
-					"coverage":{
- 						"title":"dekning"
-					},
 					"place": {
 						"title": "sted",
 						"values": [
@@ -382,7 +379,9 @@
 							"Tor",
 							"Shelf og travers"
 						]
-					}
+					},
+          "coverage":{
+              "title":"dekning"          }
 				}
 
 			}
