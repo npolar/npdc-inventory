@@ -37,11 +37,24 @@ var InventoryShowController = function($controller, $routeParams,
     }
   };
 
-
+  $scope.mapOptions = {};
 
   let show = function() {
     $scope.show().$promise.then((inventory) => {
 
+
+    if (inventory.locations) {
+
+         let bounds = (inventory.locations).map((locations) => [[locations.south, locations.west], [locations.north, locations.east]]);
+        // $scope.mapOptions.coverage = bounds;
+        console.log(bounds);
+        console.log("xxxx");
+         $scope.mapOptions.coverage = bounds;
+         $scope.mapOptions.geojson = "geojson";
+
+
+    }
+      $scope.mapOptions.geometries = inventory.links.filter(l => l.type === "application/vnd.geo+json").map(l => l.href);
 
      // $scope.links = inventory.links.filter(l => (l.rel !== "alternate" && l.rel !== "edit") && l.rel !== "data");
 

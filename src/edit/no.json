@@ -21,7 +21,7 @@
 			"description": "kategori",
 						"values": [
 						    "ukjent",
-							"airstrip",
+							"flystripe",
 							"bygning",
 							"forurensing",
 							"kulturminne",

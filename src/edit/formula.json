@@ -37,6 +37,18 @@
     }]
   },
    {
+    "title": "Locations",
+    "fields": [{
+      "id": "locations",
+      "items": [
+        "placename",
+        "country",
+        "!hemisphere",
+        "comment"
+      ]
+    }]
+  },
+   {
     "title": "Organisations",
     "fields": [{
       "id": "organisations",
@@ -78,7 +90,7 @@
       "cultural_heritage",
       "airstrip",
       "heliport",
-      "troll_cargo_site",
+      "Troll_cargo_site",
       {
         "id": "stationary_other",
         "title": "other stationaries"
@@ -87,20 +99,6 @@
         "title": "quantity"
       }
     ]
-  },
- {
-    "title": "Locations",
-    "fields": [{
-      "id": "locations",
-      "items": [
-        "coverage",
-        "placename",
-        "!area",
-        "country",
-        "!hemisphere",
-        "comment"
-      ]
-    }]
   },
   {
     "title": "Activities",
