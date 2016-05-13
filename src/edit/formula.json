@@ -234,6 +234,10 @@
     "title": "Files",
     "fields": ["files"]
   },
+   {
+    "title": "Images",
+    "fields": ["images"]
+  },
 {
     "title": "Edits",
     "fields": [{

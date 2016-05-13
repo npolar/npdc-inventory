@@ -12,6 +12,7 @@
     "Brennstoff",
     "Lenker",
     "Filopplasting",
+    "Bilder",
     "Endringer"
     ],
 	"fields": {
@@ -350,7 +351,10 @@
       							"prosjekt",
       							"publikasjon",
       							"datsenter",
-      							"forelder"
+      							"forelder",
+                    "data",
+                    "reiserute",
+                    "ekspedisjon"
 						      ]
 					     }
 				  }
@@ -364,9 +368,6 @@
 				"fields": {
 					"placename":{
 						"title":"stedsnavn"
-					},
-					"area":{
- 						"title":"område"
 					},
 					"comment":{
  						"title":"kommentar"
