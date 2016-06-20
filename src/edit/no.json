@@ -29,6 +29,7 @@
 							"depot",
 							"hytte",
 							"helikopterlandingsplass",
+              "instrument",
 							"feltaktivitet",
 							"annet",
 							"forskningsmonitorering",
@@ -54,6 +55,10 @@
     "updated": {
         "title": "oppdatert dato"
     },
+     "comment": {
+        "title": "kommentarer til større endringer"
+    },
+
      "description": {
       "title": "kort beskrivelse"
     },
@@ -133,8 +138,8 @@
     "stationary_other":{
             "title": "andre stasjonære objekter"
     },
-    "troll_cargo_site":{
-             "title":"Troll lasteplass shelfen"
+    "sledeneset_cargo_site":{
+             "title":"Sledeneset lasteplass shelfen"
     },
     "stationary_quantity": {
             "title": "antall"
@@ -170,6 +175,38 @@
               }
 			}
 	},
+  "locations":{
+    "title": "lokasjoner",
+      "description": "lokasjoner",
+      "items": {
+        "fields": {
+            "north":{
+               "title": "nord"
+            },
+            "east":{
+               "title": "øst"
+            },
+            "south":{
+               "title": "sør"
+            },
+            "west":{
+               "title": "vest"
+            },
+            "placename": {
+              "title": "stedsnavn"
+            },
+            "place": {
+              "title": "sted"
+            },
+            "comment": {
+              "title": "kommentar"
+            },
+            "loc_country": {
+            "title": "land"
+           }
+    }
+  }
+  },
 	"organisations":{
 		"title": "organisasjoner",
 			"description": "organisasjoner",
@@ -187,7 +224,7 @@
           "city": {
               "title": "by"
           },
-          "country": {
+          "@country": {
               "title": "land"
           },
           "href": {
@@ -212,7 +249,7 @@
 			"description": "Instrumenter brukt",
 			"items": {
 				"fields": {
-        "instrument":{
+        "@instrument":{
         		"title": "instrument"
    		},
    		 "instrument_description": {
@@ -318,6 +355,9 @@
             "drum_emptied":{
                 "title": "tomt fat til fjerning"
              },
+              "drum_not_extra_protected":{
+                "title": "fat ikke ekstra beskyttet av teppe, dobbel tank etc"
+             },
             "expiration_date":{
                  "title": "utløpsdato"
              },
@@ -358,32 +398,6 @@
 						      ]
 					     }
 				  }
-
-			}
-		},
-		"locations": {
-			"title": "lokasjon",
-			"description": "Lokasjonsbeskrivelse",
-			"items": {
-				"fields": {
-					"placename":{
-						"title":"stedsnavn"
-					},
-					"comment":{
- 						"title":"kommentar"
-					},
-					"place": {
-						"title": "sted",
-						"values": [
-						    "ingen",
-							"Troll",
-							"Tor",
-							"Shelf og travers"
-						]
-					},
-          "coverage":{
-              "title":"dekning"          }
-				}
 
 			}
 		}

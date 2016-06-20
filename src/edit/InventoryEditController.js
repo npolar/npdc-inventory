@@ -45,14 +45,14 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   }, $scope.formula); */
 
   formulaAutoCompleteService.autocomplete({
-    match: "#/organisations/country",
+    match: "@country",
     querySource: npolarApiConfig.base + '/country',
     label: 'name',
     value: 'code'
   }, $scope.formula);
 
   formulaAutoCompleteService.autocomplete({
-    match: "#/instrument/instrument",
+    match: "@instrument",
     querySource: npolarApiConfig.base + '/gcmd/concept/?q=&filter-version=8.0&filter-ancestors=Instruments',
     label: 'title',
     value: 'label'

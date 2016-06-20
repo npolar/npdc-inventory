@@ -13,6 +13,7 @@
 							"depot",
 							"field hut",
 							"heliport",
+							"instrument",
 							"operational activity",
 							"other",
 							"research monitoring",
@@ -156,7 +157,9 @@
 						"values": [
 						    "none",
 							"Troll",
+							"Troll airstrip",
 							"Tor",
+							"Bouvet Island",
 							"Shelf and traverse"
 						]
 					}

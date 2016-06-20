@@ -40,12 +40,18 @@
     "title": "Locations",
     "fields": [{
       "id": "locations",
-      "items": [
+      "items": {
+        "fields": [
+        "north",
+        "east",
+        "south",
+        "west",
         "placename",
+        "place",
         "country",
-        "!hemisphere",
         "comment"
-      ]
+        ]
+      }
     }]
   },
    {
@@ -60,7 +66,11 @@
           "address",
           "zip",
           "city",
-          "country", {
+          {
+            "id":"@country",
+            "title": "country"
+          },
+          {
             "id": "href",
             "title": "homepage (please include protocol, f.ex 'http://' or 'https://')"
           }
@@ -90,7 +100,10 @@
       "cultural_heritage",
       "airstrip",
       "heliport",
-      "Troll_cargo_site",
+      {
+        "id": "sledeneset_cargo_site",
+        "title": "Sledeneset cargo site"
+      },
       {
         "id": "stationary_other",
         "title": "other stationaries"
@@ -154,7 +167,8 @@
     "fields": [{
       "id": "instrument",
       "items": [
-        "instrument",
+        {"id": "@instrument",
+          "title": "instrument"},
         "instrument_description",
         "quantity"
       ]
@@ -202,6 +216,11 @@
             "id": "drum_emptied",
             "title": "drum(s) emptied to be removed"
           },
+          {
+            "id": "drum_not_extra_protected",
+            "title": " drum(s) not protected by extra bounding,double tank, spill carpets etc"
+          },
+
           "expiration_date"
         ]
       }
@@ -250,6 +269,10 @@
     }, {
       "id": "updated_by",
       "disabled": true
+    },
+    {
+      "id":"comment",
+      "title":"comments for major registration updates"
     }]
   }
 ]
