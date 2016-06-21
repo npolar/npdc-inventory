@@ -34,9 +34,9 @@ resources.forEach(service => {
 });
 
 
-npdcInventoryApp.factory('L', function() {
-  return window.L; // assumes Leaflet has already been loaded on the page
-});
+//npdcInventoryApp.factory('L', function() {
+//  return window.L; // assumes Leaflet has already been loaded on the page
+//});
 
 
 // Routing

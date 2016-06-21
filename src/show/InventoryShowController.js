@@ -41,27 +41,18 @@ var InventoryShowController = function($controller, $routeParams,
 
   let show = function() {
     $scope.show().$promise.then((inventory) => {
+          $scope.document.category = convert($scope.document.category);
 
 
+    let bounds = [];
     if (inventory.locations) {
 
-         let bounds = (inventory.locations).map((locations) => [[locations.south, locations.west], [locations.north, locations.east]]);
-        // $scope.mapOptions.coverage = bounds;
-        console.log(bounds);
-        console.log("xxxx");
-         $scope.mapOptions.coverage = bounds;
-         $scope.mapOptions.geojson = "geojson";
-
+         bounds = (inventory.locations).map((locations) => [[locations.south, locations.west], [locations.north, locations.east]]);
 
     }
-      $scope.mapOptions.geometries = inventory.links.filter(l => l.type === "application/vnd.geo+json").map(l => l.href);
 
-     // $scope.links = inventory.links.filter(l => (l.rel !== "alternate" && l.rel !== "edit") && l.rel !== "data");
-
-
-     // $scope.data = inventory.links.filter(l => l.rel === "data");
-      //var cat = $scope.document.category;
-      $scope.document.category = convert($scope.document.category);
+         $scope.mapOptions.coverage =  bounds;
+         $scope.mapOptions.geojson = "geojson";
 
 
       if ($scope.document.contamination) {
@@ -79,58 +70,48 @@ var InventoryShowController = function($controller, $routeParams,
       }
     }
 
+
+
       $scope.images = inventory.links.filter(l => {
         return (/^image\/.*/).test(l.type);
       });
-      // or in files
 
+
+      // or in files
       $scope.alternate = inventory.links.filter(l => ((l.rel === "alternate" && l.type !== "text/html") || l.rel === "edit")).concat({
         href: `http://api.npolar.no/inventory/?q=&filter-id=${inventory.id}&format=json&variant=ld`,
         title: "DCAT (JSON-LD)",
         type: "application/ld+json"
       });
 
-      $scope.mapOptions = {};
+     console.log("test3");
 
-      if (inventory.locations) {
-
-         let bounds = (inventory.locations).map((locations) => [[locations.coverage.south, locations.coverage.west], [locations.coverage.north, locations.coverage.east]]);
-        // $scope.mapOptions.coverage = bounds;
-         $scope.mapOptions.coverage = bounds;
-         $scope.mapOptions.geojson = "geojson";
-
-
-      }
-      $scope.mapOptions.geometries = inventory.links.filter(l => l.type === "application/vnd.geo+json").map(l => l.href);
-
-
-      $scope.authors = authors(inventory).map(a => {
+   /*   $scope.authors = authors(inventory).map(a => {
         if (!a.name && a.first_name) {
           a.name = `${a.first_name} ${a.last_name}`;
         }
         return a;
-      });
+      }); */
 
-
-      $scope.uri = uri(inventory);
+     $scope.uri = uri(inventory);
 
       let relatedDatasets = Dataset.array({
-        q: Inventory.title,
+        q: inventory.title,
         fields: 'id,title,collection',
         score: true,
         limit: 5,
-        'not-id': Inventory.id,
+        'not-id': inventory.id,
         op: 'OR'
       }).$promise;
       let relatedPublications = Publication.array({
-        q: Inventory.title,
+        q: inventory.title,
         fields: 'id,title,published_sort,collection',
         score: true,
         limit: 5,
         op: 'OR'
       }).$promise;
       let relatedProjects = Project.array({
-        q: Inventory.title,
+        q: inventory.title,
         fields: 'id,title,collection',
         score: true,
         limit: 5,
@@ -148,8 +129,8 @@ var InventoryShowController = function($controller, $routeParams,
 
   show();
 
-
 };
+
 
 
 /* convert from camelCase to lower case text*/

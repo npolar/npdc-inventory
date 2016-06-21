@@ -6,53 +6,57 @@
 <div ng-if="document" class="np-padding">
 
 
-<h3>Overview</h3>
+<h3>{{document.title}}</h3>
 
 
-  <md-divider></md-divider>
-
-    <br /><p>Title: {{document.title}}  <p />
-    <p>Category:  {{ (document.category) }} <p />
-    <p>Description: {{document.description}}<p />
-     <p>EPhorte no: {{document.ephorte_no}}<p /><br />
+    <p>{{ 'Category' | t }}:  {{ (document.category) }} <p />
+       <p>{{ 'EPhorte no' | t }}: {{document.ephorte_no}}<p />
+    <p>{{ 'Description' | t }}: {{document.description}}<p />
+    <br />
 
 
  <npdc:persons></npdc:persons>
  <npdc:organisations></npdc:organisations>
 
-  <div ng-if="document.locations" ng-repeat="location in document.locations">
-  <h3>Locations</h3>
+  <div ng-if="document.locations">
+  <h3>{{ 'Locations' | t }}</h3>
    <md-divider></md-divider>
-     <p>Bounding area: [[{{locations.north}}{{locations.east}}],[{{locations.south}}{{locations.west}}] </p>
-      <p>Placename: {{location.placename}} </p>
-      <p>Place: {{(location.place).charAt(0).toUpperCase()}}{{(location.place).toLowerCase().slice(1)}} </p>
-      <p>Comment: {{location.comment}} </p>
+  <div ng-repeat="location in document.locations">
+    <p> <md-icon>place</md-icon>{{ 'Bounding area' | t }}: [[ {{location.north}} , {{location.east}} ],[ {{location.south}} , {{location.west}} ]] </p>
+      <p>{{ 'Placename' | t }}: {{location.placename}} </p>
+      <p>{{ 'Place' | t }}: {{(location.place).charAt(0).toUpperCase()}}{{(location.place).toLowerCase().slice(1)}} </p>
+      <p>{{ 'Comment' | t }}: {{location.comment}} </p><br />
     </div>
+  </div>
 
 
-<br /><br />
-  <h3>Dates</h3>
+
+
+<div ng-if="document.release_dates.start_date" || "document.release_dates.end_date" || "document.intended_removal_date" || "document.comment_date" >
+  <h3>{{ 'Dates' | t }}</h3>
    <md-divider></md-divider>
-   <div ng-if="document.release_dates.start_date">Release date: {{(document.release_dates.start_date).substr(0,10)}} </p></div>
-   <p>Intended removal date: {{(document.intended_removal_date).substr(0,10)}} </p>
-    <p>Removal date: {{(document.release_dates.end_date).substr(0,10)}} </p>
-     <p>Date comment: {{(document.comment_date).substr(0,10)}} </p>
+   <p ng-if="document.release_dates.start_date">{{ 'Release date' | t }}: {{(document.release_dates.start_date).substr(0,10)}} </p></p>
+   <p ng-if="document.intended_removal_date">{{ 'Intended removal date' | t }}: {{(document.intended_removal_date).substr(0,10)}} </p>
+    <p ng-if="document.release_dates.end_date">{{ 'Removal date' | t }}: {{(document.release_dates.end_date).substr(0,10)}} </p>
+     <p ng-if="document.comment_date">{{ 'Date comment' | t }}: {{ document.comment_date }} </p>
 <br />
+</div>
 
 
-
-<h3>Sites</h3>
+<div ng-if="document.field_hut" || "document.research_station" || "document.cultural_heritage" || "document.airstrip" || "document.heliport" || "document.troll_cargo_site" >
+<h3>{{ 'Sites' | t }}</h3>
 <md-divider></md-divider>
-<p ng-if="document.field_hut"> Field hut </p>
-<p ng-if="document.research_station"> Research station </p>
-<p ng-if="document.cultural_heritage"> Cultural heritage </p>
+<p ng-if="document.field_hut">{{ 'Field hut' | t }}  </p>
+<p ng-if="document.research_station">{{ 'Research station' | t }} </p>
+<p ng-if="document.cultural_heritage">{{ 'Cultural heritage' | t }}  </p>
 <p ng-if="document.airstrip"> Airstrip </p>
 <p ng-if="document.heliport"> Heliport </p>
 <p ng-if="document.troll_cargo_site"> Sledeneset cargo site </p>
-<p>Other stationaries: {{ document.stationary_other }}</p>
-<p>Quantity: {{ document.stationary_quantity }}</p><br />
+<p ng-if="document.stationary_other">Other stationaries: {{ document.stationary_other }}</p>
+<p ng-if="document.stationary_quantity">Quantity: {{ document.stationary_quantity }}</p><br />
+</div>
 
-
+<div ng-if="document.rock_samples" || "document.soil_samples" || "document.sediment_samples" || "document.flora_samples" || "document.fauna_samples" || "document.interference_fauna_flora" || "document.introduced_species" || "document.animal_censors" || "document.explosives" || "document.radionucleides" || "document.ice_sampling" || "document.ice_coring" || "document.snow_sampling" || "document.air_sampling" || "document.water_sampling" || "document.other_invasive_activity">
 <h3>Field activities</h3>
    <md-divider></md-divider>
    <p ng-if="document.rock_samples"> Rock samples </p>
@@ -72,59 +76,59 @@
    <p ng-if="document.water_sampling"> Water sampling </p>
    <p ng-if="document.other_invasive_activity"> Other invasive activity</p>
 <br />
+</div>
 
-
+<div ng-if="document.instrument">
   <h3>Instruments</h3>
   <md-divider></md-divider>
-  <section ng-if="document.instrument" ng-repeat="inst in document.instrument">
-        <p>Instrument: {{ inst.instrument }}</p>
-        <p>Instrument description: {{ inst.instrument_description }}</p>
-        <p>Quantity: {{ inst.quantity }}</p>
+  <section ng-repeat="inst in document.instrument">
+        <p ng-if='inst["@instrument"]'>Instrument: {{ inst["@instrument"] }}</p>
+        <p ng-if="inst.instrument_description">Instrument description: {{ inst.instrument_description }}</p>
+        <p ng-if="inst.quantity">Quantity: {{ inst.quantity }}</p>
        <br />
   </section>
+</div>
 
+<div ng-if="document.contamination">
   <h3>Contamination</h3>
   <md-divider></md-divider>
-  <section ng-if="document.contamination" ng-repeat="ctmn in document.contamination">
-         <p>Type: {{ ctmn.type }}</p>
-         <p>Quantity: {{ ctmn.quantity }}</p>
-         <p>Priority: {{ ctmn.priority }}</p>
-         <p>Likelihood of impact: {{ ctmn.impact_likelihood }}</p>
-         <p>Spatial impact: {{ ctmn.impact_spatial }}</p>
-         <p>Temporal impact: {{ ctmn.impact_temporal }}</p>
+  <section ng-repeat="ctmn in document.contamination">
+         <p ng-if="ctmn.type">Type: {{ ctmn.type }}</p>
+         <p ng-if="ctmn.quantity">Quantity: {{ ctmn.quantity }}</p>
+         <p ng-if="ctmn.priority">Priority: {{ ctmn.priority }}</p>
+         <p ng-if="ctmn.impact_likelihood">Likelihood of impact: {{ ctmn.impact_likelihood }}</p>
+         <p ng-if="ctmn.impact_spatial">Spatial impact: {{ ctmn.impact_spatial }}</p>
+         <p ng-if="ctmn.impact_temporal">Temporal impact: {{ ctmn.impact_temporal }}</p>
            <p ng-if="ctmn.impact_documented "> Impact documented </p>
             <p ng-if="!ctmn.impact_documented "> Impact not documented </p>
-
          <br />
   </section>
+</div>
 
-
+<div ng-if="document.fuel">
   <h3>Fuel</h3>
   <md-divider></md-divider>
-  <section ng-if="document.fuel" ng-repeat="fuel in document.fuel">
-     <p>Fuel tank: {{ fuel.fuel_tank }}</p>
-     <p>Quantity: {{ fuel.quantity }} </p>
-     <p>Content: {{ fuel.content }}  </p>
+  <section ng-repeat="fuel in document.fuel">
+     <p ng-if="fuel.fuel_tank">Fuel tank: {{ fuel.fuel_tank }}</p>
+     <p ng-if="fuel.quantity">Quantity: {{ fuel.quantity }} </p>
+     <p ng-if="fuel.content">Content: {{ fuel.content }}  </p>
      <p ng-if="fuel.drum_full"> Drums full </p>
      <p ng-if="fuel.drum_emptied"> Drums emptied to be removed </p>
      <p ng-if="fuel.drum_not_extra_protected"> Drums emptied to be removed </p>
-     <p>Expiration date:  {{ (fuel.expiration_date).substr(0,10) }} </p>
-
+     <p ng-if="fuel.expiration_date">Expiration date:  {{ (fuel.expiration_date).substr(0,10) }} </p>
        <br />
   </section>
+</div>
+
+
+
+
+  <h3>Uploads and photos</h3>
+  <md-divider></md-divider>
 
 
 
 <npdc:links links="links" related="related"></npdc:links>
-
-
-
-
-  <h3>Photos</h3>
-  <md-divider></md-divider>
-
-   <h3>Uploads</h3>
-  <md-divider></md-divider>
 
 
 
