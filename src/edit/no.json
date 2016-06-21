@@ -196,7 +196,15 @@
               "title": "stedsnavn"
             },
             "place": {
-              "title": "sted"
+              "title": "sted",
+              "values": [
+                "Ingen",
+              "Troll",
+              "Troll flylandingsplass",
+              "Tor",
+              "Bouvetøya",
+              "Shelfen og travers"
+            ]
             },
             "comment": {
               "title": "kommentar"
@@ -228,7 +236,7 @@
               "title": "land"
           },
           "href": {
-            "title": "weblenke"
+            "title": "weblenke inkludert protokoll (f.eks. http:// som i lenken http://www.npolar.no)"
           }
 	  }
 	}

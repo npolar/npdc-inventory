@@ -12,6 +12,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   // Inventory -> npolarApiResource -> ngResource
   $scope.resource = Inventory;
 
+
   let templates = [
     {
       match: "locations_item",
@@ -60,7 +61,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
 
 
   formulaAutoCompleteService.autocompleteFacets(['people.first_name', 'people.last_name', 'people.organisation','people.email','people.phone',
-  'organisations.name','organisations.address','organisations.zip','organisations.city','organisations.href'], Inventory, $scope.formula);
+  'organisations.name','organisations.address','organisations.zip','organisations.city','organisations.href', 'locations.placename'], Inventory, $scope.formula);
 
   chronopicService.defineOptions({ match: 'released', format: '{date}'});
   chronopicService.defineOptions({ match(field) {
@@ -77,10 +78,12 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
       },
       server,
       multiple: true,
-      progress: false,
-      restricted: function () {
-        return !formula.getModel().license;
+       restricted: function () {
+        return formula.getModel().restricted;
       },
+   //   restricted: function () {
+   //     return !formula.getModel().license;
+   //   },
       fileToValueMapper: Inventory.fileObject,
       valueToFileMapper: Inventory.hashiObject,
       fields: [] // 'type', 'hash'

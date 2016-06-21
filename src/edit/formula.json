@@ -162,16 +162,20 @@
       "title": "other invasive activity"
     }]
   },
-  {
+   {
     "title": "Instruments",
     "fields": [{
       "id": "instrument",
-      "items": [
-        {"id": "@instrument",
-          "title": "instrument"},
+      "items": {
+        "fields": [
+        {
+            "id":"@instrument",
+            "title": "instrument"
+          },
         "instrument_description",
         "quantity"
-      ]
+        ]
+      }
     }]
   },
   {
