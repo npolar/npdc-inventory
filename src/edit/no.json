@@ -87,13 +87,13 @@
         "title": "prøver fauna"
     },
     "interference_fauna_flora": {
-        "title": "forstyrrelse fauna/flora"
+        "title": "forstyrrelse flora/fauna"
     },
     "introduced_species": {
         "title": "innføring av nye arter"
     },
     "animal_censors": {
-        "title": "dyreprøver"
+        "title": "sensorer på dyr"
     },
     "explosives": {
         "title": "eksplosiver"
@@ -117,7 +117,7 @@
         "title": "vannprøver"
     },
     "other_invasive_activity": {
-        "title": "annen invasiv aktivitet"
+        "title": "annen inngripende aktivitet"
     },
     "field_hut": {
           "description": "Location is a field camp",
@@ -139,7 +139,7 @@
             "title": "andre stasjonære objekter"
     },
     "sledeneset_cargo_site":{
-             "title":"Sledeneset lasteplass shelfen"
+             "title":"Sledeneset laste- og losseplass"
     },
     "stationary_quantity": {
             "title": "antall"
@@ -315,7 +315,7 @@
 						 ]
 					},
 					"impact_spatial": {
-						 "title": "påvirkning areal",
+						 "title": "romlig påvirkning",
 						 "values": [
 						  "ukjent",
 						  "lokalt <100m²",
@@ -345,7 +345,7 @@
 			"items": {
 				"fields": {
 				"fuel_tank": {
-                    "title": "tank",
+                    "title": "Drivstoff tank",
                     "values": [
                             "ingen",
 							"11 kubikk",
@@ -358,10 +358,10 @@
 				"title":"antall"
 			},
             "drum_full":{
-                "title": "fullt fat"
+                "title": "fulle fat"
             },
             "drum_emptied":{
-                "title": "tomt fat til fjerning"
+                "title": "tomme fat som skal fjerning"
              },
               "drum_not_extra_protected":{
                 "title": "fat ikke ekstra beskyttet av teppe, dobbel tank etc"

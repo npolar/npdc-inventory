@@ -49,73 +49,73 @@
 <p ng-if="document.field_hut">{{ 'Field hut' | t }}  </p>
 <p ng-if="document.research_station">{{ 'Research station' | t }} </p>
 <p ng-if="document.cultural_heritage">{{ 'Cultural heritage' | t }}  </p>
-<p ng-if="document.airstrip"> Airstrip </p>
-<p ng-if="document.heliport"> Heliport </p>
-<p ng-if="document.troll_cargo_site"> Sledeneset cargo site </p>
-<p ng-if="document.stationary_other">Other stationaries: {{ document.stationary_other }}</p>
-<p ng-if="document.stationary_quantity">Quantity: {{ document.stationary_quantity }}</p><br />
+<p ng-if="document.airstrip">{{ 'Airstrip' | t }} </p>
+<p ng-if="document.heliport">{{ 'Heliport' | t }} </p>
+<p ng-if="document.troll_cargo_site">{{ 'Sledeneset cargo site' | t }} </p>
+<p ng-if="document.stationary_other">{{ 'Other stationaries' | t  }}: {{ document.stationary_other }}</p>
+<p ng-if="document.stationary_quantity">{{ 'Quantity' | t }}: {{ document.stationary_quantity }}</p><br />
 </div>
 
 <div ng-if="document.rock_samples" || "document.soil_samples" || "document.sediment_samples" || "document.flora_samples" || "document.fauna_samples" || "document.interference_fauna_flora" || "document.introduced_species" || "document.animal_censors" || "document.explosives" || "document.radionucleides" || "document.ice_sampling" || "document.ice_coring" || "document.snow_sampling" || "document.air_sampling" || "document.water_sampling" || "document.other_invasive_activity">
-<h3>Field activities</h3>
+<h3>{{ 'Activities' | t }}</h3>
    <md-divider></md-divider>
-   <p ng-if="document.rock_samples"> Rock samples </p>
-   <p ng-if="document.soil_samples"> Soil samples </p>
-   <p ng-if="document.sediment_samples"> Sediment samples </p>
-   <p ng-if="document.flora_samples"> Flora samples </p>
-   <p ng-if="document.fauna_samples"> Fauna samples </p>
-   <p ng-if="document.interference_fauna_flora"> Interference flora/fauna </p>
-   <p ng-if="document.introduced_species">Introduced species </p>
-   <p ng-if="document.animal_censors"> Animal censors </p>
-   <p ng-if="document.explosives"> Explosives </p>
-   <p ng-if="document.radionucleides"> Radionucleids </p>
-   <p ng-if="document.ice_sampling"> Ice sampling </p>
-   <p ng-if="document.ice_coring"> Ice coring </p>
-   <p ng-if="document.snow_sampling"> Snow sampling </p>
-   <p ng-if="document.air_sampling"> Air sampling </p>
-   <p ng-if="document.water_sampling"> Water sampling </p>
-   <p ng-if="document.other_invasive_activity"> Other invasive activity</p>
+   <p ng-if="document.rock_samples">{{ 'Rock samples' | t }} </p>
+   <p ng-if="document.soil_samples">{{ 'Soil samples' | t }} </p>
+   <p ng-if="document.sediment_samples">{{ 'Sediment samples' | t }} </p>
+   <p ng-if="document.flora_samples"> {{ 'Flora samples' | t }} </p>
+   <p ng-if="document.fauna_samples">{{ 'Fauna samples' | t }} </p>
+   <p ng-if="document.interference_fauna_flora">{{ 'Interference flora/fauna' | t }} </p>
+   <p ng-if="document.introduced_species">{{ 'Introduced species' | t }} </p>
+   <p ng-if="document.animal_censors"> {{ 'Animal censors' | t }} </p>
+   <p ng-if="document.explosives"> {{ 'Explosives' | t }} </p>
+   <p ng-if="document.radionucleides"> {{ 'Radionucleids' | t }} </p>
+   <p ng-if="document.ice_sampling"> {{ 'Ice sampling' | t }} </p>
+   <p ng-if="document.ice_coring"> {{ 'Ice coring' | t }} </p>
+   <p ng-if="document.snow_sampling"> {{ 'Snow sampling' | t }} </p>
+   <p ng-if="document.air_sampling"> {{ 'Air sampling' | t }} </p>
+   <p ng-if="document.water_sampling"> {{ 'Water sampling' | t }} </p>
+   <p ng-if="document.other_invasive_activity"> {{ 'Other invasive activity' | t }}</p>
 <br />
 </div>
 
 <div ng-if="document.instrument">
-  <h3>Instruments</h3>
+  <h3>{{ 'Instruments' | t }}</h3>
   <md-divider></md-divider>
   <section ng-repeat="inst in document.instrument">
-        <p ng-if='inst["@instrument"]'>Instrument: {{ inst["@instrument"] }}</p>
-        <p ng-if="inst.instrument_description">Instrument description: {{ inst.instrument_description }}</p>
-        <p ng-if="inst.quantity">Quantity: {{ inst.quantity }}</p>
+        <p ng-if='inst["@instrument"]'>{{ 'Instrument' | t }}: {{ inst["@instrument"] }}</p>
+        <p ng-if="inst.instrument_description">{{ 'Instrument description' | t }}: {{ inst.instrument_description }}</p>
+        <p ng-if="inst.quantity">{{ 'Quantity' | t }}: {{ inst.quantity }}</p>
        <br />
   </section>
 </div>
 
 <div ng-if="document.contamination">
-  <h3>Contamination</h3>
+  <h3>{{ 'Contamination' | t }}</h3>
   <md-divider></md-divider>
   <section ng-repeat="ctmn in document.contamination">
-         <p ng-if="ctmn.type">Type: {{ ctmn.type }}</p>
-         <p ng-if="ctmn.quantity">Quantity: {{ ctmn.quantity }}</p>
-         <p ng-if="ctmn.priority">Priority: {{ ctmn.priority }}</p>
-         <p ng-if="ctmn.impact_likelihood">Likelihood of impact: {{ ctmn.impact_likelihood }}</p>
-         <p ng-if="ctmn.impact_spatial">Spatial impact: {{ ctmn.impact_spatial }}</p>
-         <p ng-if="ctmn.impact_temporal">Temporal impact: {{ ctmn.impact_temporal }}</p>
-           <p ng-if="ctmn.impact_documented "> Impact documented </p>
-            <p ng-if="!ctmn.impact_documented "> Impact not documented </p>
+         <p ng-if="ctmn.type">{{ 'Type: {{ ctmn.type }}</p>
+         <p ng-if="ctmn.quantity">{{ 'Quantity' | t }}: {{ ctmn.quantity }}</p>
+         <p ng-if="ctmn.priority">{{ 'Priority' | t }}: {{ ctmn.priority }}</p>
+         <p ng-if="ctmn.impact_likelihood">{{ 'Likelihood of impact' | t }}: {{ ctmn.impact_likelihood }}</p>
+         <p ng-if="ctmn.impact_spatial">{{ 'Spatial impact' | t }}: {{ ctmn.impact_spatial }}</p>
+         <p ng-if="ctmn.impact_temporal">{{ 'Temporal impact' | t }}: {{ ctmn.impact_temporal }}</p>
+           <p ng-if="ctmn.impact_documented ">{{ 'Impact documented' | t }} </p>
+            <p ng-if="!ctmn.impact_documented ">{{ 'Impact not documented' | t }} </p>
          <br />
   </section>
 </div>
 
 <div ng-if="document.fuel">
-  <h3>Fuel</h3>
+  <h3>{{ 'Fuel' | t }}</h3>
   <md-divider></md-divider>
   <section ng-repeat="fuel in document.fuel">
-     <p ng-if="fuel.fuel_tank">Fuel tank: {{ fuel.fuel_tank }}</p>
-     <p ng-if="fuel.quantity">Quantity: {{ fuel.quantity }} </p>
-     <p ng-if="fuel.content">Content: {{ fuel.content }}  </p>
-     <p ng-if="fuel.drum_full"> Drums full </p>
-     <p ng-if="fuel.drum_emptied"> Drums emptied to be removed </p>
-     <p ng-if="fuel.drum_not_extra_protected"> Drums emptied to be removed </p>
-     <p ng-if="fuel.expiration_date">Expiration date:  {{ (fuel.expiration_date).substr(0,10) }} </p>
+     <p ng-if="fuel.fuel_tank">{{ 'Fuel tank' | t }}: {{ fuel.fuel_tank }}</p>
+     <p ng-if="fuel.quantity">{{ 'Quantity' | t }}: {{ fuel.quantity }} </p>
+     <p ng-if="fuel.content">{{ 'Content' | t }}: {{ fuel.content }}  </p>
+     <p ng-if="fuel.drum_full">{{ 'Drums full' | t }} </p>
+     <p ng-if="fuel.drum_emptied">{{ 'Drums emptied to be removed' | t }} </p>
+     <p ng-if="fuel.drum_not_extra_protected">{{ 'Drums without extra protection ' | t }} </p>
+     <p ng-if="fuel.expiration_date">{{ 'Expiration date' | t }}:  {{ (fuel.expiration_date).substr(0,10) }} </p>
        <br />
   </section>
 </div>
@@ -134,7 +134,7 @@
 
    <section ng-if="alternate">
         <md-divider></md-divider>
-        <h3>Machine-readable metadata</h3>
+        <h3>{{ 'Machine-readable metadata' | t }}</h3>
         <!-- @todo CC0 for metadata? <p></p> -->
         <p>
           <div ng-repeat="link in alternate">
