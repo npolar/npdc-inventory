@@ -93,7 +93,7 @@
   <h3>{{ 'Contamination' | t }}</h3>
   <md-divider></md-divider>
   <section ng-repeat="ctmn in document.contamination">
-         <p ng-if="ctmn.type">{{ 'Type: {{ ctmn.type }}</p>
+         <p ng-if="ctmn.type">{{ 'Type' | t }}: {{ ctmn.type }}</p>
          <p ng-if="ctmn.quantity">{{ 'Quantity' | t }}: {{ ctmn.quantity }}</p>
          <p ng-if="ctmn.priority">{{ 'Priority' | t }}: {{ ctmn.priority }}</p>
          <p ng-if="ctmn.impact_likelihood">{{ 'Likelihood of impact' | t }}: {{ ctmn.impact_likelihood }}</p>

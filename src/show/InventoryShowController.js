@@ -9,7 +9,7 @@ var InventoryShowController = function($controller, $routeParams,
   });
   $scope.resource = Inventory;
 
-  let authors = (inventory) => {
+ /* let authors = (inventory) => {
 
     var folks = [];
     var orgs = [];
@@ -23,7 +23,7 @@ var InventoryShowController = function($controller, $routeParams,
     }
     return folks.concat(orgs);
 
-  };
+  }; */
 
 
   let uri = (inventory) => {
@@ -72,9 +72,9 @@ var InventoryShowController = function($controller, $routeParams,
 
 
 
-      $scope.images = inventory.links.filter(l => {
-        return (/^image\/.*/).test(l.type);
-      });
+//      $scope.images = inventory.links.filter(l => {
+//        return (/^image\/.*/).test(l.type);
+//      });
 
 
       // or in files
@@ -84,7 +84,7 @@ var InventoryShowController = function($controller, $routeParams,
         type: "application/ld+json"
       });
 
-     console.log("test3");
+
 
    /*   $scope.authors = authors(inventory).map(a => {
         if (!a.name && a.first_name) {
@@ -149,4 +149,3 @@ function convert(str) {
        }
 
 module.exports = InventoryShowController;
-
