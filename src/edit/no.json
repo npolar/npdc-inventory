@@ -58,12 +58,18 @@
      "comment": {
         "title": "kommentarer til større endringer"
     },
-
      "description": {
       "title": "kort beskrivelse"
     },
      "ephorte_no": {
       "title": "ePhorte nr"
+    },
+      "draft": {
+      "title":"er dette en kladd (tilgjengelig kun internt)?",
+      "values": [
+              "ja",
+              "nei"
+            ]
     },
      "intended_removal_date": {
       "title": "antatt innhentingsdato"

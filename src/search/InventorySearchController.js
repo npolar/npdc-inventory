@@ -22,7 +22,7 @@ var InventorySearchController = function ($filter, $scope, $location, $controlle
   let query = function() {
     let defaults = { limit: "all", sort: "-updated", fields: 'title,id,category,instrument,description,updated',
       'date-year': 'release_date', facets: 'category,instrument' };
-    let invariants = $scope.security.isAuthenticated() ? {} : {} ;
+    let invariants = $scope.security.isAuthenticated() ? {} : {"not-draft": "yes"} ;
     return Object.assign({}, defaults, invariants);
   };
 

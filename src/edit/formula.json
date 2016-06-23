@@ -5,7 +5,11 @@
       "category",
       "title",
       "description",
-      "ephorte_no"
+      "ephorte_no",
+       {
+      "id":"draft",
+      "title":"Is this entry a draft (internal only)?"
+    }
     ]
   },
   {
@@ -277,7 +281,8 @@
     {
       "id":"comment",
       "title":"comments for major registration updates"
-    }]
+    }
+    ]
   }
 ]
 }
