@@ -11,8 +11,7 @@
     "Forurensing",
     "Brennstoff",
     "Lenker",
-    "Filopplasting",
-    "Bilder",
+    "Opplasting",
     "Endringer"
     ],
 	"fields": {
@@ -404,8 +403,9 @@
       							"service",
       							"prosjekt",
       							"publikasjon",
-      							"datsenter",
+      							"datasenter",
       							"forelder",
+                    "barn",
                     "data",
                     "reiserute",
                     "ekspedisjon"

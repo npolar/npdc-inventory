@@ -90,7 +90,6 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
     }, formula);
   }
 
-
   try {
     initFileUpload($scope.formula);
     // edit (or new) action
