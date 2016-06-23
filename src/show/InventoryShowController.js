@@ -38,6 +38,7 @@ var InventoryShowController = function($controller, $routeParams,
   };
 
   $scope.mapOptions = {};
+  $scope.mapOptions.initcoord = [-72.011389, 2.535];
 
   let show = function() {
     $scope.show().$promise.then((inventory) => {
@@ -53,6 +54,7 @@ var InventoryShowController = function($controller, $routeParams,
 
          $scope.mapOptions.coverage =  bounds;
          $scope.mapOptions.geojson = "geojson";
+
 
 
       if ($scope.document.contamination) {

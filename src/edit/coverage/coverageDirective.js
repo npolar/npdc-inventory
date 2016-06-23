@@ -10,6 +10,8 @@ let coverageDirective = function () {
 
       let rectLayer;
       let changesDueToMapSelect = 0;
+      console.log($scope);
+      console.log("hei fra edit leaflet");
 
       let initField = function (field) {
         field.step = 0.01;
@@ -36,6 +38,7 @@ let coverageDirective = function () {
           [$scope.north.value, $scope.east.value]]];
       }
 
+      //mapOptions object is initiating the wrapper
       $scope.mapOptions = {
         draw: {
           rectangle: true
@@ -44,7 +47,8 @@ let coverageDirective = function () {
           edit: true,
           remove: true
         },
-        coverage: coverage
+        coverage: coverage,
+        initcoord: [-72.011389, 2.535]
       };
 
       $scope.$on('mapSelect', (e, layer) => {
