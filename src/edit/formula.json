@@ -256,8 +256,11 @@
     }]
   },
 {
-    "title": "Files",
-    "fields": ["files"]
+    "title": "Upload",
+    "fields": [{
+      "id":"files",
+      "title":"Upload documents and photos"
+    }]
   },
 {
     "title": "Edits",

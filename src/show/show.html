@@ -122,14 +122,17 @@
 </div>
 
 
-
-
-  <h3>Uploads and photos</h3>
+  <section ng-if="security.hasSystem(resource.path)">
+     <h3>{{ 'Documents and photos' | t }}</h3>
   <md-divider></md-divider>
+      <div ng-repeat="file in document.files">
+        <p><md-icon>file_download</md-icon> <a ng-href="{{file.uri+'?key='+key()}}">{{ file.filename}}</a> ({{ file.type }} {{ file.file_size | bytes }})</p>
+      </div>
+      <br />
+  </section>
 
 
-
- <section>
+<section>
  <div ng-if="document.links.length > 0">
     <h3>{{ 'Links' | t }}</h3>
     <md-divider></md-divider>
@@ -141,6 +144,7 @@
         </div>
       </md-list-item>
     </md-list>
+    <br />
 </section>
 
 
