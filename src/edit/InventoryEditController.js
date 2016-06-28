@@ -4,35 +4,16 @@ var InventoryEditController = function($scope, $controller, $routeParams, $http,
   chronopicService, fileFunnelService, NpolarLang, npolarApiConfig, NpolarApiSecurity, NpolarMessage, npolarCountryService) {
   'ngInject';
 
-
-  // Inventory -> npolarApiResource -> ngResource
-  $scope.resource = Inventory;
-
-   function isHiddenLink(rel) {
-    if (rel.rel) {
-      rel = rel.rel;
-    }
-    return ["alternate", "edit", "via"].includes(rel);
-}
-
- function init() {
-
-  // EditController -> NpolarEditController
+// EditController -> NpolarEditController
   $controller('NpolarEditController', {
     $scope: $scope
   });
 
+  // Inventory -> npolarApiResource -> ngResource
+  $scope.resource = Inventory;
+
+
   let templates = [
-    {match(field) {
-          if (field.id === 'links_item') {
-
-            // Hide data links and system links
-            return isHiddenLink(field.value.rel);
-          }
-        },
-        hidden: true
-
-    },
     {
       match: "locations_item",
       template: "<inventory:coverage></inventory:coverage>"
@@ -64,8 +45,6 @@ var InventoryEditController = function($scope, $controller, $routeParams, $http,
     value: 'code'
   }, $scope.formula); */
 
-  initFileUpload($scope.formula);
-
   formulaAutoCompleteService.autocomplete({
     match: "@country",
     querySource: npolarApiConfig.base + '/country',
@@ -88,7 +67,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, $http,
   chronopicService.defineOptions({ match(field) {
     return field.path.match(/^#\/activity\/\d+\/.+/);
   }, format: '{date}'});
- }
+
 
     function initFileUpload(formula) {
 
@@ -107,43 +86,14 @@ var InventoryEditController = function($scope, $controller, $routeParams, $http,
    //   },
       fileToValueMapper: Inventory.fileObject,
       valueToFileMapper: Inventory.hashiObject,
-      fields: [] // 'type', 'hash'
+      fields: ['href', 'filename'] // 'type', 'hash'
     }, formula);
   }
 
   try {
-     init();
+    initFileUpload($scope.formula);
     // edit (or new) action
-    $scope.edit().$promise.then(inventory => {
-
-
-        // Grab attachments and force update attachments and links
-        let fileUri = `${NpolarApiSecurity.canonicalUri($scope.resource.path)}/${inventory.id}/_file`;
-
-        $http.get(fileUri).then(r => {
-          if (r && r.data && r.data.files && r.data.files.length > 0) {
-            let inventory = $scope.formula.getModel();
-            let files = r.data.files;
-
-            let attachments = files.map(hashi => Inventory.attachmentObject(hashi));
-            inventory.attachments = attachments;
-
-            r.data.files.forEach(f => {
-              let link = inventory.links.find(l => l.href === f.url);
-
-              if (!link) {
-                let license = inventory.licences[0] || Inventory.license;
-                link = Inventory.linkObject(f, license);
-                inventory.links.push(link);
-              }
-              // else findIndex & objhect.assign?
-            });
-            $scope.formula.setModel(inventory);
-          }
-        });
-
-});
-
+    $scope.edit();
   } catch (e) {
     NpolarMessage.error(e);
   }

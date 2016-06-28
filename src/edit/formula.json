@@ -255,7 +255,7 @@
       }
     }]
   },
-  {
+{
     "title": "Files",
     "fields": ["files"]
   },
