@@ -9,22 +9,6 @@ var InventoryShowController = function($controller, $routeParams,
   });
   $scope.resource = Inventory;
 
- /* let authors = (inventory) => {
-
-    var folks = [];
-    var orgs = [];
-
-    if (inventory.people instanceof Array) {
-      folks = inventory.people.filter(p => p.roles.includes("author"));
-    }
-
-    if (folks.length === 0 && inventory.organisations instanceof Array) {
-      orgs = inventory.organisations.filter(o => o.roles.includes("author"));
-    }
-    return folks.concat(orgs);
-
-  }; */
-
 
   let uri = (inventory) => {
     let link = inventory.links.find(l => {
@@ -37,13 +21,15 @@ var InventoryShowController = function($controller, $routeParams,
     }
   };
 
+
+
+  //Show map in Antarctica
   $scope.mapOptions = {};
   $scope.mapOptions.initcoord = [-72.011389, 2.535];
 
   let show = function() {
     $scope.show().$promise.then((inventory) => {
           $scope.document.category = convert($scope.document.category);
-
 
     let bounds = [];
     if (inventory.locations) {
@@ -52,9 +38,8 @@ var InventoryShowController = function($controller, $routeParams,
 
     }
 
-         $scope.mapOptions.coverage =  bounds;
-         $scope.mapOptions.geojson = "geojson";
-
+    $scope.mapOptions.coverage =  bounds;
+    $scope.mapOptions.geojson = "geojson";
 
 
       if ($scope.document.contamination) {
@@ -73,12 +58,6 @@ var InventoryShowController = function($controller, $routeParams,
     }
 
 
-
-//      $scope.images = inventory.links.filter(l => {
-//        return (/^image\/.*/).test(l.type);
-//      });
-
-
       // or in files
       $scope.alternate = inventory.links.filter(l => ((l.rel === "alternate" && l.type !== "text/html") || l.rel === "edit")).concat({
         href: `http://api.npolar.no/inventory/?q=&filter-id=${inventory.id}&format=json&variant=ld`,
@@ -87,15 +66,9 @@ var InventoryShowController = function($controller, $routeParams,
       });
 
 
-
-   /*   $scope.authors = authors(inventory).map(a => {
-        if (!a.name && a.first_name) {
-          a.name = `${a.first_name} ${a.last_name}`;
-        }
-        return a;
-      }); */
-
+     //link to show
      $scope.uri = uri(inventory);
+
 
       let relatedDatasets = Dataset.array({
         q: inventory.title,

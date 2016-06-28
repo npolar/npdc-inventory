@@ -129,14 +129,25 @@
 
 
 
-<npdc:links links="links" related="related"></npdc:links>
+ <section>
+ <div ng-if="document.links.length > 0">
+    <h3>{{ 'Links' | t }}</h3>
+    <md-divider></md-divider>
+    <md-list>
+      <md-list-item class="md-2-line" ng-repeat="link in document.links">
+        <div class="md-list-item-text">
+          <a ng-href="{{link.href}}">{{ link.title || link.href }}</a>
+          <p>{{ link.rel }}</p>
+        </div>
+      </md-list-item>
+    </md-list>
+</section>
 
 
 
    <section ng-if="alternate">
-        <md-divider></md-divider>
         <h3>{{ 'Machine-readable metadata' | t }}</h3>
-        <!-- @todo CC0 for metadata? <p></p> -->
+         <md-divider></md-divider>
         <p>
           <div ng-repeat="link in alternate">
             <a ng-href="{{link.href}}" title="{{link.type}}">{{ link.title || link.href }}</a>

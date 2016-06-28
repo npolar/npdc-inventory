@@ -10,8 +10,6 @@ let coverageDirective = function () {
 
       let rectLayer;
       let changesDueToMapSelect = 0;
-      console.log($scope);
-      console.log("hei fra edit leaflet");
 
       let initField = function (field) {
         field.step = 0.01;
