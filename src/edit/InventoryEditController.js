@@ -86,7 +86,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, $http,
    //   },
       fileToValueMapper: Inventory.fileObject,
       valueToFileMapper: Inventory.hashiObject,
-      fields: ['href', 'filename'] // 'type', 'hash'
+      fields: [] // 'type', 'hash'
     }, formula);
   }
 
