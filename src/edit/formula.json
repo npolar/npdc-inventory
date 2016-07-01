@@ -82,16 +82,14 @@
       }
     }]
   },
-   {
+  {
     "title": "Dates",
     "fields": [
-       {
-       "id":"release_dates",
-       "title":"release dates"
-       },
+      "start_date",
+      "end_date",
       {
           "id": "intended_removal_date",
-          "title": "intended removal date (if in the future)"
+          "title": "intended removal date (future)"
       },
        "comment_date"
     ]

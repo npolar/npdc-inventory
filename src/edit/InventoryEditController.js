@@ -10,7 +10,11 @@ var InventoryEditController = function($scope, $controller, $routeParams, $http,
   });
 
   // Inventory -> npolarApiResource -> ngResource
+
   $scope.resource = Inventory;
+
+  console.log("see resource:");
+  console.log($scope.resource);
 
 
   let templates = [
@@ -63,10 +67,14 @@ var InventoryEditController = function($scope, $controller, $routeParams, $http,
   formulaAutoCompleteService.autocompleteFacets(['people.first_name', 'people.last_name', 'people.organisation','people.email','people.phone',
   'organisations.name','organisations.address','organisations.zip','organisations.city','organisations.href', 'locations.placename'], Inventory, $scope.formula);
 
-  chronopicService.defineOptions({ match: 'released', format: '{date}'});
+ chronopicService.defineOptions({ match(field) {
+    return field.path.match(/date/);
+ }, format: '{date}'});
+ /*
   chronopicService.defineOptions({ match(field) {
     return field.path.match(/^#\/activity\/\d+\/.+/);
-  }, format: '{date}'});
+  }, format: '{release_dates}'});
+*/
 
 
     function initFileUpload(formula) {

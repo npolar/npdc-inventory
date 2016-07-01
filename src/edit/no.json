@@ -31,8 +31,8 @@
               "instrument",
 							"feltaktivitet",
 							"annet",
-							"forskningsmonitorering",
-							"forskningsprosjekt",
+							"monitorering",
+							"forskning",
 							"forskningsstasjon"
 						]
 					},
@@ -149,6 +149,12 @@
     "stationary_quantity": {
             "title": "antall"
     },
+    "start_date":{
+            "title": "utsettingsdato"
+    },
+    "end_date": {
+              "title": "innhentingsdato"
+    },
     "people": {
 			"title": "personell",
 			"description": "Liste med kontaktpersoner",
@@ -203,12 +209,12 @@
             "place": {
               "title": "sted",
               "values": [
-                "Ingen",
+                "ingen",
               "Troll",
               "Troll flylandingsplass",
               "Tor",
               "Bouvetøya",
-              "Isbrem og travers"
+              "travers"
             ]
             },
             "comment": {
@@ -246,17 +252,6 @@
 	  }
 	}
 	},
-	"release_dates":{
-    "title": "utsettingsdatoer",
-     "fields":{
-     	 "start_date":{
-        		"title": "utsettingsdato"
-   		},
-   		 "end_date": {
-              "title": "innhentingsdato"
-          }
-     }
-      },
 	"instrument":{
 		"title": "instrumenter",
 			"description": "Instrumenter brukt",
@@ -350,7 +345,7 @@
 			"items": {
 				"fields": {
 				"fuel_tank": {
-                    "title": "Drivstoff tank",
+                    "title": "drivstoff tank",
                     "values": [
                             "ingen",
 							"11 kubikk",
@@ -366,7 +361,7 @@
                 "title": "fulle fat"
             },
             "drum_emptied":{
-                "title": "tomme fat som skal fjerning"
+                "title": "tomme fat som skal fjernes"
              },
               "drum_not_extra_protected":{
                 "title": "fat ikke ekstra beskyttet av teppe, dobbel tank etc"

@@ -12,6 +12,8 @@ npdcInventoryApp.controller('InventoryShowController', require('./show/Inventory
 npdcInventoryApp.controller('InventorySearchController', require('./search/InventorySearchController'));
 npdcInventoryApp.controller('InventoryEditController', require('./edit/InventoryEditController'));
 npdcInventoryApp.directive('inventoryCoverage', require('./edit/coverage/coverageDirective'));
+npdcInventoryApp.factory('Inventory', require('./Inventory.js'));
+
 
 // Bootstrap ngResource models using NpolarApiResource
 var resources = [
