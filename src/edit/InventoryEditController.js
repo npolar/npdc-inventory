@@ -37,7 +37,11 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
     {
         match: "placenames_item",
         template: '<npdc:formula-placename></npdc:formula-placename>'
-      }
+      },
+      {
+        match: "people_item",
+        template: '<npdc:formula-person></npdc:formula-person>'
+}
     ]),
       languages: npdcAppConfig.formula.languages.concat([{
         map: require('./en.json'),
@@ -68,8 +72,9 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
   }, $scope.formula);
 
 
-  formulaAutoCompleteService.autocompleteFacets(['people.first_name', 'people.last_name', 'people.organisation','people.email','people.phone',
-  'organisations.name','organisations.address','organisations.zip','organisations.city','organisations.href', 'locations.placename'], Inventory, $scope.formula);
+
+
+  formulaAutoCompleteService.autocompleteFacets(['organisations.name','organisations.address','organisations.zip','organisations.city','organisations.href', 'locations.placename'], Inventory, $scope.formula);
 
 //Set chronopic view format (this does not change the internal value, i.e. ISO string date)
  chronopicService.defineOptions({ match(field) {
