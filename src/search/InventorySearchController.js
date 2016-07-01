@@ -2,7 +2,7 @@
 /**
  * @ngInject
  */
-var InventorySearchController = function ($filter, $scope, $location, $controller, Inventory, npdcAppConfig) {
+var InventorySearchController = function ($filter, $scope, $location, $controller, Inventory, npdcAppConfig, NpolarTranslate) {
 
   $controller('NpolarBaseController', { $scope: $scope });
   $scope.resource = Inventory;
@@ -10,8 +10,10 @@ var InventorySearchController = function ($filter, $scope, $location, $controlle
 
   //Search subtitles
   npdcAppConfig.search.local.results.detail = function (entry) {
-    let r = convert(entry.category) + ' - Last updated:';
-    return  r+` ${$filter('date')(entry.updated)}`;
+    let categoryText = NpolarTranslate.translate(entry.category);
+    let lastupdateText = NpolarTranslate.translate('Last updated');
+    let r = convert(categoryText) + " - " + lastupdateText + ":";
+    return  r+` ${$filter('date')(entry.updated, 'd-M-yyyy')}`;
   };
 
 
