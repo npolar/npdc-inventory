@@ -4,7 +4,10 @@
     "fields": [
       "category",
       "title",
-      "description",
+      {
+            "id": "description",
+            "type": "textarea"
+      },
       "ephorte_no",
        {
       "id":"draft",
@@ -174,8 +177,11 @@
             "id":"@instrument",
             "title": "instrument"
           },
-        "instrument_description",
-        "quantity"
+          {
+            "id":"instrument_description",
+             "type": "textarea"
+          },
+          "quantity"
         ]
       }
     }]
@@ -277,7 +283,8 @@
     },
     {
       "id":"comment",
-      "title":"comments for major registration updates"
+      "title":"comments for major registration updates",
+      "type":"textarea"
     }
     ]
   }
