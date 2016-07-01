@@ -26,7 +26,7 @@
 							"kulturminne",
 							"datafangst",
 							"depot",
-							"hytte",
+							"felthytte",
 							"helikopterlandingsplass",
               "instrument",
 							"feltaktivitet",
@@ -286,7 +286,7 @@
 							"matavfall",
 							"kloakk/urin (ikke kompostert)",
 							"forurensing oljeprodukter",
-							"kloakk kompostert",
+							"kompostert kloakk",
 							"kjemikalier og batterier"
 						]
 					},
@@ -297,9 +297,9 @@
 						 "title": "prioritet",
 						 "values": [
 						    "ukjent",
-                            "utbedring høy prioritert",
-                            "utbedring middels prioritert",
-                            "utbedring lavt prioritert",
+                            "utbedring høy prioritet",
+                            "utbedring middels prioritet",
+                            "utbedring lav prioritet",
                             "videre vurderinger nødvendig",
                             "monitorering nødvendig"
 						 ]
@@ -311,7 +311,7 @@
 						 "høyst sannsynlig skadelig",
 						 "sannsynligvis skadelig",
 						 "kanskje skadelig",
-						 "lite sannsynlig"
+						 "lite skadelig"
 						 ]
 					},
 					"impact_spatial": {

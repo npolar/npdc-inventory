@@ -1,6 +1,6 @@
 'use strict';
 
-var InventoryEditController = function($scope, $controller, $routeParams, Inventory, formula, formulaAutoCompleteService, npdcAppConfig,
+var InventoryEditController = function($scope, $controller, $routeParams, Inventory, $http, $timeout, formula, formulaAutoCompleteService, npdcAppConfig,
   chronopicService, fileFunnelService, NpolarLang, npolarApiConfig, NpolarApiSecurity, NpolarMessage, npolarCountryService) {
   'ngInject';
 
@@ -32,7 +32,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
         hidden: true
       },  {
         match: "locations_item",
-        template: "<expedition:coverage></expedition:coverage>"
+        template: "<inventory:coverage></inventory:coverage>"
       },
     {
         match: "placenames_item",

@@ -2,14 +2,14 @@
 require('should');
 
 describe('InventoryEditController', function () {
-  var $scope, $controller, $routeParams;  //Inventory;
+  var $scope, $controller, $routeParams, Inventory;
 
   // Set up mocks
   before(function () {
     console.log("InventoryEditCtrlSpec");
     $scope = {};
     $routeParams = {};
-   // Inventory = {};
+    Inventory = {};
     $controller = function () {};
   });
 
