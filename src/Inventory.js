@@ -3,25 +3,24 @@
 function Inventory( $q, InventoryResource) {
   'ngInject';
 
-  const schema = 'http://api.npolar.no/schema/inventory';
+//  const schema = 'http://api.npolar.no/schema/inventory';
 
-  InventoryResource.schema = schema;
+//  InventoryResource.schema = schema;
 
   InventoryResource.create = function() {
 
-      console.log("got here");
-      let hemisphere = "S";
-      let lang = "en";
+      let lang = 'en';
       let collection = "inventory";
-      let schema = schema;
+      let schema = 'http://api.npolar.no/schema/inventory';
 
-
-      let e = {  hemisphere, lang, collection, schema };
-      console.log("got here 2");
+      let e = {  lang, collection, schema };
       console.debug(e);
+
       return e;
 
     };
+
+
 
   return InventoryResource;
 

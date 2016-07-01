@@ -1,8 +1,10 @@
 'use strict';
 
-var InventoryEditController = function($scope, $controller, $routeParams, $http, $timeout, Inventory, formula, formulaAutoCompleteService, npdcAppConfig,
+var InventoryEditController = function($scope, $controller, $routeParams, Inventory, formula, formulaAutoCompleteService, npdcAppConfig,
   chronopicService, fileFunnelService, NpolarLang, npolarApiConfig, NpolarApiSecurity, NpolarMessage, npolarCountryService) {
   'ngInject';
+
+ function init() {
 
 // EditController -> NpolarEditController
   $controller('NpolarEditController', {
@@ -10,44 +12,46 @@ var InventoryEditController = function($scope, $controller, $routeParams, $http,
   });
 
   // Inventory -> npolarApiResource -> ngResource
-
   $scope.resource = Inventory;
 
-  console.log("see resource:");
-  console.log($scope.resource);
+   let formulaOptions = {
+      schema: '//api.npolar.no/schema/inventory',
+      form: 'edit/formula.json',
+      language: NpolarLang.getLang(),
+      templates: npdcAppConfig.formula.templates.concat([{
+        match(field) {
+          if (field.id === 'links_item') {
+            let match;
 
-
-  let templates = [
+          // Hide data links and system links for the ordinary links block (defined in formula as instance === 'links')
+            match = ["data", "alternate", "edit", "via"].includes(field.value.rel) && field.parents[field.parents.length-1].instance === 'links';
+          //  console.log(match, field.id, field.path, 'value', field.value, 'instance', field.parents[field.parents.length-1].instance);
+            return match;
+          }
+        },
+        hidden: true
+      },  {
+        match: "locations_item",
+        template: "<expedition:coverage></expedition:coverage>"
+      },
     {
-      match: "locations_item",
-      template: "<inventory:coverage></inventory:coverage>"
-    }
-  ];
-
-  let i18n = [{
-      map: require('./en.json'),
-      code: 'en'
-    },
-    {
-      map: require('./no.json'),
-      code: 'nb_NO',
-    }];
-
-   $scope.formula = formula.getInstance({
-     schema: '//api.npolar.no/schema/inventory',
-     form: 'edit/formula.json',
-     language: NpolarLang.getLang(),
-     templates:  npdcAppConfig.formula.templates.concat(templates),
-     languages: npdcAppConfig.formula.languages.concat(i18n)
-   });
+        match: "placenames_item",
+        template: '<npdc:formula-placename></npdc:formula-placename>'
+      }
+    ]),
+      languages: npdcAppConfig.formula.languages.concat([{
+        map: require('./en.json'),
+        code: 'en'
+      }, {
+        map: require('./no.json'),
+        code: 'nb_NO',
+      }])
+  };
 
 
- /* formulaAutoCompleteService.autocomplete({
-    match: "#/conference/country",
-    querySource: npolarApiConfig.base + '/country',
-    label: 'native',
-    value: 'code'
-  }, $scope.formula); */
+  $scope.formula = formula.getInstance(formulaOptions);
+  initFileUpload($scope.formula);
+
 
   formulaAutoCompleteService.autocomplete({
     match: "@country",
@@ -70,11 +74,11 @@ var InventoryEditController = function($scope, $controller, $routeParams, $http,
  chronopicService.defineOptions({ match(field) {
     return field.path.match(/date/);
  }, format: '{date}'});
- /*
-  chronopicService.defineOptions({ match(field) {
-    return field.path.match(/^#\/activity\/\d+\/.+/);
-  }, format: '{release_dates}'});
-*/
+
+
+  console.log("see resource:");
+  console.log($scope.resource);
+}
 
 
     function initFileUpload(formula) {
@@ -99,7 +103,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, $http,
   }
 
   try {
-    initFileUpload($scope.formula);
+    init();
     // edit (or new) action
     $scope.edit();
   } catch (e) {

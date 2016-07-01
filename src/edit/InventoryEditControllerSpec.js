@@ -6,6 +6,7 @@ describe('InventoryEditController', function () {
 
   // Set up mocks
   before(function () {
+    console.log("InventoryEditCtrlSpec");
     $scope = {};
     $routeParams = {};
    // Inventory = {};
