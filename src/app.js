@@ -22,8 +22,8 @@ var resources = [
   {'path': '/dataset', 'resource': 'Dataset' },
   {'path': '/publication', 'resource': 'Publication' },
   {'path': '/project', 'resource': 'Project' },
-   {'path': '/expedition', 'resource': 'Expedition'},
-    {'path': '/inventory', 'resource': 'InventoryResource'}
+  {'path': '/expedition', 'resource': 'Expedition'},
+  {'path': '/inventory', 'resource': 'InventoryResource'}
 ];
 
 
@@ -57,26 +57,5 @@ npdcInventoryApp.run(($http, npdcAppConfig, NpolarTranslate, NpolarLang) => {
   NpolarTranslate.loadBundles('npdc-inventory');
   npdcAppConfig.toolbarTitle = 'Inventory';
 });
-
-
-
-// API HTTP interceptor
-/*npdcInventoryApp.config($httpProvider => {
-  $httpProvider.interceptors.push('npolarApiInterceptor');
-});
-
-
-// Inject npolarApiConfig and run
-npdcInventoryApp.run(function(npolarApiConfig, npdcAppConfig){
-  var environment = "test";
-  var autoconfig = new AutoConfig(environment);
-  angular.extend(npolarApiConfig, autoconfig);
-
-  npdcAppConfig.cardTitle = '';
-  npdcAppConfig.toolbarTitle = 'NPI Inventory'; */
-
- // console.log("npolarApiConfig", npolarApiConfig);
-//});
-
 
 

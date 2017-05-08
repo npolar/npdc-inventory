@@ -11,9 +11,7 @@
   "private": false,
   "repository": "https://github.com/npolar/npdc-inventory",
   "dependencies": {
-    "angular": "^1.4.9",
-    "angular-sanitize": "^1.4.9",
-    "npdc-common": "npolar/npdc-common"
+    "npdc-common": "npolar/npdc-common#v4.10.9"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.3.13",
@@ -27,7 +25,14 @@
   },
   "browserify": {
     "transform": [
-      ["babelify",{"presets": ["es2015"]}],
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ],
       "partialify",
       "browserify-ngannotate"
     ]

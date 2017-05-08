@@ -74,7 +74,7 @@ var InventoryEditController = function($scope, $controller, $routeParams, Invent
 
 
 
-  formulaAutoCompleteService.autocompleteFacets(['organisations.name','organisations.address','organisations.zip','organisations.city','organisations.href', 'locations.placename'], Inventory, $scope.formula);
+  formulaAutoCompleteService.autocompleteFacets(['organisations.name','organisations.address','organisations.zip','locations.placename','organisations.city','organisations.href'], Inventory, $scope.formula);
 
 //Set chronopic view format (this does not change the internal value, i.e. ISO string date)
  chronopicService.defineOptions({ match(field) {

@@ -53,7 +53,7 @@
         "east",
         "south",
         "west",
-        "placename",
+        "@placename",
         "place",
         "country",
         "comment"
