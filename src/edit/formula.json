@@ -87,36 +87,20 @@
   },
   {
     "title": "Dates",
-    "fields": [
-      "start_date",
-      "end_date",
-      {
-          "id": "intended_removal_date",
-          "title": "intended removal date (future)"
-      },
-       "comment_date"
-    ]
-  },
-  {
-    "title": "Sites",
-    "fields": [
-      "field_hut",
-      "research_station",
-      "cultural_heritage",
-      "airstrip",
-      "heliport",
-      {
-        "id": "sledeneset_cargo_site",
-        "title": "Sledeneset cargo site"
-      },
-      {
-        "id": "stationary_other",
-        "title": "other stationaries"
-      }, {
-        "id": "stationary_quantity",
-        "title": "quantity"
+    "fields": [{
+      "id": "dates",
+      "items": {
+        "fields": [
+         "start_date",
+         "end_date",
+         {
+            "id": "intended_removal_date",
+            "title": "intended removal date (future)"
+         },
+         "comment_date"
+        ]
       }
-    ]
+    }]
   },
   {
     "title": "Activities",
@@ -195,7 +179,14 @@
             "id": "type",
             "title": "type of contamination"
           },
-          "quantity",
+          {
+            "id": "quantity",
+            "title": "quantity in cubicmeters"
+          },
+          {
+            "id": "quantity_recovered",
+            "title": "quantity recovered in cubicmeters"
+          },
           "priority", {
             "id": "impact_likelihood",
             "title": "likelihood of impact"
@@ -220,7 +211,10 @@
       "items": {
         "fields": [
           "fuel_tank",
-          "quantity",
+          {
+            "id": "quantity",
+            "title": "quantity litres"
+          },
           "content", {
             "id": "drum_full",
             "title": "drum(s) full"

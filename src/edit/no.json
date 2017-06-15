@@ -19,22 +19,21 @@
 			"title": "kategori",
 			"description": "kategori",
 						"values": [
-						    "ukjent",
+						  "ukjent",
 							"flystripe",
 							"bygning",
 							"forurensing",
 							"kulturminne",
-							"datafangst",
 							"depot",
-							"felthytte",
+              "felthytte",
+              "brennstoff",
 							"helikopterlandingsplass",
               "instrument",
-							"feltaktivitet",
+              "operasjonell virksomhet",
 							"annet",
-							"monitorering",
-							"forskning",
-							"forskningsstasjon"
-						]
+              "forskning inkludert overvåking",
+              "forskningsstasjon"
+              ]
 					},
 	"title": {
         "title": "tittel"
@@ -291,8 +290,11 @@
 						]
 					},
 					"quantity":{
-                        "title": "antall"
+                        "title": "antall i kubikkmeter"
 					},
+          "quantity_recovered":{
+                        "title": "antall gjenvunnet i kubikkmeter"
+          },
 					"priority": {
 						 "title": "prioritet",
 						 "values": [
@@ -355,7 +357,7 @@
 
 			},
 			"quantity": {
-				"title":"antall"
+				"title":"antall liter"
 			},
             "drum_full":{
                 "title": "fulle fat"
@@ -375,7 +377,8 @@
                             "ingen",
 							"diesel",
 							"jet A-1",
-							"bensin"
+							"bensin",
+              "propan"
 						]
 			}
 		}

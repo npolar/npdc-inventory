@@ -1,26 +1,23 @@
 {
 	"fields": {
 		"category": {
-			"title": "category",
-			"description": "category",
-						"values": [
-						    "unknown",
+			   	     "title": "category",
+                    "values": [
+                            "unknown",
 							"airstrip",
 							"building",
 							"contamination",
 							"cultural heritage",
-							"data collection",
 							"depot",
 							"field hut",
+							"fuel",
 							"heliport",
 							"instrument",
 							"operational activity",
 							"other",
-							"research monitoring",
-							"research project",
-							"research station"
-						]
-					},
+							"research including monitoring",
+							"research station"]
+		},
     "people": {
 			"title": "people",
 			"description": "contact persons",
@@ -122,7 +119,8 @@
                             "none",
 							"diesel",
 							"jet A-1",
-							"benzin"
+							"benzin",
+							"propane"
 						]
 			   }
 		}

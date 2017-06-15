@@ -17,7 +17,9 @@
 
 
  <npdc:persons></npdc:persons>
+  <div ng-if="document.organisations">
  <npdc:organisations></npdc:organisations>
+</div>
 
   <div ng-if="document.locations">
   <h3>{{ 'Locations' | t }}</h3>
@@ -36,29 +38,18 @@
   </div>
 
 
-<div ng-if="document.release_dates.start_date" || "document.release_dates.end_date" || "document.intended_removal_date" || "document.comment_date" >
+<div ng-if="document.dates" >
   <h3>{{ 'Dates' | t }}</h3>
    <md-divider></md-divider>
-   <p ng-if="document.release_dates.start_date">{{ 'Release date' | t }}: {{(document.start_date).substr(0,10)}} </p></p>
-   <p ng-if="document.intended_removal_date">{{ 'Intended removal date' | t }}: {{(document.intended_removal_date).substr(0,10)}} </p>
-    <p ng-if="document.release_dates.end_date">{{ 'Removal date' | t }}: {{(document.end_date).substr(0,10)}} </p>
-     <p ng-if="document.comment_date">{{ 'Date comment' | t }}: {{ document.comment_date }} </p>
+  <div ng-repeat="date1 in document.dates">
+   <p ng-if="date1.start_date">{{ 'Release date' | t }}: {{(date1.start_date).substr(0,10)}} </p></p>
+   <p ng-if="date1.intended_removal_date">{{ 'Intended removal date' | t }}: {{(date1.intended_removal_date).substr(0,10)}} </p>
+    <p ng-if="date1.end_date">{{ 'Removal date' | t }}: {{(date1.end_date).substr(0,10)}} </p>
+     <p ng-if="date1.comment_date">{{ 'Date comment' | t }}: {{ date1.comment_date }} </p>
+  </div>
 <br />
 </div>
 
-
-<div ng-if="document.field_hut" || "document.research_station" || "document.cultural_heritage" || "document.airstrip" || "document.heliport" || "document.troll_cargo_site" >
-<h3>{{ 'Sites' | t }}</h3>
-<md-divider></md-divider>
-<p ng-if="document.field_hut">{{ 'field hut' | t }}  </p>
-<p ng-if="document.research_station">{{ 'research station' | t }} </p>
-<p ng-if="document.cultural_heritage">{{ 'cultural heritage' | t }}  </p>
-<p ng-if="document.airstrip">{{ 'airstrip' | t }} </p>
-<p ng-if="document.heliport">{{ 'heliport' | t }} </p>
-<p ng-if="document.troll_cargo_site">{{ 'Sledeneset cargo site' | t }} </p>
-<p ng-if="document.stationary_other">{{ 'other stationaries' | t  }}: {{ document.stationary_other }}</p>
-<p ng-if="document.stationary_quantity">{{ 'Quantity' | t }}: {{ document.stationary_quantity }}</p><br />
-</div>
 
 <div ng-if="document.rock_samples" || "document.soil_samples" || "document.sediment_samples" || "document.flora_samples" || "document.fauna_samples" || "document.interference_fauna_flora" || "document.introduced_species" || "document.animal_censors" || "document.explosives" || "document.radionucleides" || "document.ice_sampling" || "document.ice_coring" || "document.snow_sampling" || "document.air_sampling" || "document.water_sampling" || "document.other_invasive_activity">
 <h3>{{ 'Activities' | t }}</h3>
@@ -126,12 +117,14 @@
 
 
   <section ng-if="security.hasSystem(resource.path)">
+     <div ng-if="document.files">
      <h3>{{ 'Documents and photos' | t }}</h3>
   <md-divider></md-divider>
       <div ng-repeat="file in document.files">
         <p><md-icon>file_download</md-icon> <a ng-href="{{file.uri+'?key='+key()}}">{{ file.filename}}</a> ({{ file.type }} {{ file.file_size | bytes }})</p>
       </div>
       <br />
+    </div>
   </section>
 
 
